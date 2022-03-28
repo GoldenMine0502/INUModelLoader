@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "model": "inumodelloader:models/block/test_obj_block.obj",
+  "flip-v": true
+}
