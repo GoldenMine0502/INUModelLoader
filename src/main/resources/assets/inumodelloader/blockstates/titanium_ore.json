@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "tutorialmod:block/titanium_ore"
+      "model": "inumodelloader:block/titanium_ore"
     }
   }
 }

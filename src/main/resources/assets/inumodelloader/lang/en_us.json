@@ -1,8 +1,12 @@
 {
-  "item.inumodelloader.titanium_ingot": "Titanium Ingot..?",
-  "item.inumodelloader.titanium_nugget": "Titanium Nugget..?",
-  "item.inumodelloader.raw_titanium": "Raw Titanium..?",
+  "item.inumodelloader.titanium_ingot": "Titanium Ingot",
+  "item.inumodelloader.titanium_nugget": "Titanium Nugget",
+  "item.inumodelloader.raw_titanium": "Raw Titanium",
+  "item.inumodelloader.inu_item": "인천대의 상징",
 
-  "block.inumodelloader.titanium_block": "Titanium Block..?",
-  "block.inumodelloader.titanium_ore": "Titanium Ore..?"
+  "block.inumodelloader.titanium_block": "Titanium Block",
+  "block.inumodelloader.titanium_ore": "Titanium Ore",
+
+  "itemGroup.tutorial_tab": "Tutorial Items",
+  "itemGroup.inu_models": "INU Models"
 }
