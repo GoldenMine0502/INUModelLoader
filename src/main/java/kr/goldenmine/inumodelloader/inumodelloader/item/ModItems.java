@@ -25,8 +25,8 @@ public class ModItems {
     public static final RegistryObject<Item> INU_ITEM = ITEMS.register("inu_item",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.INU_MODELS_TAB)));
 
-    public static final RegistryObject<Item> TEST_OBJ_ITEM = ITEMS.register("test_obj_item",
-            () -> new BlockItem(ModBlocks.TEST_OBJ_BLOCK.get(), new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
+//    public static final RegistryObject<Item> TEST_OBJ_ITEM = ITEMS.register("test_obj_item",
+//            () -> new BlockItem(ModBlocks.TEST_OBJ_BLOCK.get(), new Item.Properties().tab(ModCreativeModeTab.TUTORIAL_TAB)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

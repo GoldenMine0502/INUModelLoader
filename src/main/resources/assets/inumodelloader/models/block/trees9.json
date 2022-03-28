@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "model": "inumodelloader:models/block/trees9.obj",
+  "flip-v": true
+}

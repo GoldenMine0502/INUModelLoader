@@ -6,6 +6,6 @@ import net.minecraft.world.level.material.Material;
 
 public class TestObjBlock extends Block {
     public TestObjBlock() {
-        super(Properties.of(Material.STONE));
+        super(Properties.of(Material.GLASS));
     }
 }

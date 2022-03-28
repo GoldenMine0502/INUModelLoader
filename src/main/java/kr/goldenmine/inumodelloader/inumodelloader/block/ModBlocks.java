@@ -26,7 +26,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> TITANIUM_ORE = registerBlock("titanium_ore",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(10f)), ModCreativeModeTab.TUTORIAL_TAB);
 
-    public static final RegistryObject<Block> TEST_OBJ_BLOCK = BLOCKS.register("test_obj_block", TestObjBlock::new);
+    public static final RegistryObject<Block> TEST_OBJ_BLOCK = registerBlock("test_obj_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.GLASS).strength(10f)), ModCreativeModeTab.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> TREE_BLOCK = registerBlock("tree_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.GLASS).strength(10f)), ModCreativeModeTab.INU_MODELS_TAB);
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
