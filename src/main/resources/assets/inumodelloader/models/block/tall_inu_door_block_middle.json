@@ -1,0 +1,8 @@
+{
+    "parent": "inumodelloader:block/door_middle",
+    "textures": {
+        "bottom": "inumodelloader:block/tall_inu_door_block_middle",
+        "middle": "inumodelloader:block/tall_inu_door_block_middle",
+        "top": "inumodelloader:block/tall_inu_door_block_middle"
+    }
+}

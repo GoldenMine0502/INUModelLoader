@@ -52,6 +52,8 @@ public class Inumodelloader {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_BLOCK.get(), RenderType.glintTranslucent());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
