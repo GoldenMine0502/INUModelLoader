@@ -2,11 +2,14 @@
   "item.inumodelloader.titanium_ingot": "Titanium Ingot",
   "item.inumodelloader.titanium_nugget": "Titanium Nugget",
   "item.inumodelloader.raw_titanium": "Raw Titanium",
-  "item.inumodelloader.inu_item": "인천대의 상징",
+  "item.inumodelloader.inu_item": "Incheon National University",
 
   "block.inumodelloader.titanium_block": "Titanium Block",
   "block.inumodelloader.titanium_ore": "Titanium Ore",
 
-  "itemGroup.tutorial_tab": "Tutorial Items",
-  "itemGroup.inu_models": "INU Models"
+  "itemGroup.tutorial_tab": "Test Items",
+  "itemGroup.inu_models": "INU Models",
+
+  "block.inumodelloader.tall_inu_door_block": "INU Blue Door",
+  "block.inumodelloader.inu_wood_sign": "INU Sign"
 }

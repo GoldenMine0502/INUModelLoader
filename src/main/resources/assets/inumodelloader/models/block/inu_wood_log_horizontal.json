@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "inumodelloader:block/inu_wood_log_top",
+    "side": "inumodelloader:block/inu_wood_log"
+  }
+}

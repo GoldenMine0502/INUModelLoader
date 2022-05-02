@@ -1,25 +1,28 @@
 package kr.goldenmine.inumodelloader.inumodelloader;
 
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
-import kr.goldenmine.inumodelloader.inumodelloader.block.wood.ModWoodTypes;
+import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import kr.goldenmine.inumodelloader.inumodelloader.tileentity.ModTileEntities;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.WoodType;
+import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.texture.AtlasSet;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,6 +45,7 @@ public class Inumodelloader {
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        ModTileEntities.register(eventBus);
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -62,7 +66,7 @@ public class Inumodelloader {
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
         event.enqueueWork(() -> {
-            WoodType.register(ModWoodTypes.INUSignWood);
+            WoodType.register(ModWoodTypes.INUWood);
         });
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_BLOCK.get(), RenderType.glintTranslucent());
     }
@@ -78,19 +82,21 @@ public class Inumodelloader {
     private void processIMC(final InterModProcessEvent event) {
         // some example code to receive and process InterModComms from other mods
         LOGGER.info("Got IMC {}", event.getIMCStream().
-                map(m -> m.messageSupplier().get()).
+                map(m -> m.getMessageSupplier().get()).
                 collect(Collectors.toList()));
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         event.enqueueWork(() -> {
-            RenderType cutout_mipped = RenderType.cutoutMipped();
+            RenderType cutoutMipped = RenderType.getCutoutMipped();
 
-            // RenderTypeLookup
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutout_mipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutoutMipped);
 
 
+
+            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignTileEntityRenderer::new);
+            Atlases.addWoodType(ModWoodTypes.INUWood);
         });
     }
 

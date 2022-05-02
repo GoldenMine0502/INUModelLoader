@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "inumodelloader:block/stripped_inu_wood_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "inumodelloader:block/stripped_inu_wood_wood"
+    },
+    "axis=z": {
+      "model": "inumodelloader:block/stripped_inu_wood_wood",
+      "x": 90
+    }
+  }
+}

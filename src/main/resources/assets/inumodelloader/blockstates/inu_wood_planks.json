@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "inumodelloader:block/inu_planks"
+      "model": "inumodelloader:block/inu_wood_planks"
     }
   }
 }

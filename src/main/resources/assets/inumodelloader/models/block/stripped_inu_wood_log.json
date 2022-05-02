@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "inumodelloader:block/stripped_inu_wood_log_top",
+    "side": "inumodelloader:block/stripped_inu_wood_log"
+  }
+}
