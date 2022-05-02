@@ -1,6 +1,7 @@
 package kr.goldenmine.inumodelloader.inumodelloader.block;
 
 import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader;
+import kr.goldenmine.inumodelloader.inumodelloader.block.wood.ModWoodTypes;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModCreativeModeTab;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -34,6 +35,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> TALL_INU_DOOR_BLOCK = registerBlock("tall_inu_door_block",
             TallINUDoorBlock::new, ModCreativeModeTab.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> INU_SIGN = BLOCKS.register("inu_sign",
+            () -> new InuStandingSignBlock(BlockBehaviour.Properties.of(Material.METAL), ModWoodTypes.INUSignWood));
+
+    public static final RegistryObject<Block> INU_WALL_SIGN = BLOCKS.register("inu_wall_sign",
+            () -> new InuWallSignBlock(BlockBehaviour.Properties.of(Material.METAL), ModWoodTypes.INUSignWood));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

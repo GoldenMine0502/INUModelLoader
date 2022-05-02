@@ -1,15 +1,21 @@
 package kr.goldenmine.inumodelloader.inumodelloader;
 
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
+import kr.goldenmine.inumodelloader.inumodelloader.block.wood.ModWoodTypes;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.texture.AtlasSet;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
@@ -43,6 +49,8 @@ public class Inumodelloader {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        // Register the doClientStuff method for modloading
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -53,6 +61,9 @@ public class Inumodelloader {
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
+        event.enqueueWork(() -> {
+            WoodType.register(ModWoodTypes.INUSignWood);
+        });
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_BLOCK.get(), RenderType.glintTranslucent());
     }
 
@@ -69,6 +80,18 @@ public class Inumodelloader {
         LOGGER.info("Got IMC {}", event.getIMCStream().
                 map(m -> m.messageSupplier().get()).
                 collect(Collectors.toList()));
+    }
+
+    private void doClientStuff(final FMLClientSetupEvent event) {
+        // do something that can only be done on the client
+        event.enqueueWork(() -> {
+            RenderType cutout_mipped = RenderType.cutoutMipped();
+
+            // RenderTypeLookup
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutout_mipped);
+
+
+        });
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

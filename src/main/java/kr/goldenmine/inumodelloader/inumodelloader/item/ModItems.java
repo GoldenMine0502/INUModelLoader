@@ -1,7 +1,9 @@
 package kr.goldenmine.inumodelloader.inumodelloader.item;
 
 import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader;
+import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,6 +24,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> INU_ITEM = ITEMS.register("inu_item",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.INU_MODELS_TAB)));
+
+    public static final RegistryObject<Item> INU_SIGN = ITEMS.register("inu_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16).tab(ModCreativeModeTab.INU_MODELS_TAB), ModBlocks.INU_SIGN.get(), ModBlocks.INU_WALL_SIGN.get()));
 
 //    public static final RegistryObject<Item> TALL_INU_DOOR_ITEM = ITEMS.register("inu_item",
 //            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.INU_MODELS_TAB)));
