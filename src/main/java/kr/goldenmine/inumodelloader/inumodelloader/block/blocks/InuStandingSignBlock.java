@@ -9,18 +9,33 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
 public class InuStandingSignBlock extends StandingSignBlock {
-    public InuStandingSignBlock(Properties properties, WoodType type) {
+
+    private final String signType;
+
+    public InuStandingSignBlock(Properties properties, WoodType type, String signType) {
         super(properties, type);
+
+        this.signType = signType;
+    }
+
+    public String getSignType() {
+        return signType;
     }
 
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new InuSignTileEntity();
+        return new InuSignTileEntity(signType);
+    }
+
+    @Override
+    public boolean eventReceived(BlockState state, World worldIn, BlockPos pos, int id, int param) {
+        return false;
     }
 
     // 공중에 뜰 수 있도록 함

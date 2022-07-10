@@ -57,10 +57,16 @@ public class ModBlocks {
             () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)), ModItemGroup.TUTORIAL_TAB);
 
     public static final RegistryObject<Block> INU_WOOD_SIGN = BLOCKS.register("inu_wood_sign",
-            () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood));
+            () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, ""));
+
+    public static final RegistryObject<Block> INU_WOOD_SIGN_101 = BLOCKS.register("inu_wood_sign_101",
+            () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, "101"));
 
     public static final RegistryObject<Block> INU_WOOD_WALL_SIGN = BLOCKS.register("inu_wood_wall_sign",
-            () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood));
+            () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, ""));
+
+    public static final RegistryObject<Block> INU_WOOD_WALL_SIGN_101 = BLOCKS.register("inu_wood_wall_sign_101",
+            () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, "101"));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, ItemGroup group) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

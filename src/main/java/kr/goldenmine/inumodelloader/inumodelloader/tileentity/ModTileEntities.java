@@ -14,10 +14,28 @@ public class ModTileEntities {
             DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Inumodelloader.MOD_ID);
 
     public static final RegistryObject<TileEntityType<InuSignTileEntity>> SIGN_TILE_ENTITIES =
-            TILE_ENTITIES.register("sign", () -> TileEntityType.Builder.create(InuSignTileEntity::new,
+            TILE_ENTITIES.register("inu_sign", () -> TileEntityType.Builder.create(InuSignTileEntity::new,
                     ModBlocks.INU_WOOD_SIGN.get(),
                     ModBlocks.INU_WOOD_WALL_SIGN.get()
             ).build(null));
+
+    public static final RegistryObject<TileEntityType<InuSignTileEntity>> SIGN_TILE_ENTITIES_101 =
+            TILE_ENTITIES.register("inu_sign_101", () -> TileEntityType.Builder.create(InuSignTileEntity::new,
+                    ModBlocks.INU_WOOD_SIGN_101.get(),
+                    ModBlocks.INU_WOOD_WALL_SIGN_101.get()
+            ).build(null));
+
+//    public static final RegistryObject<TileEntityType<InuSignTileEntity>> SIGN_TILE_ENTITIES_101 =
+//            TILE_ENTITIES.register("inu_wood_sign_101", () -> TileEntityType.Builder.create(InuSignTileEntity::new,
+//                    ModBlocks.INU_WOOD_SIGN_101.get(),
+//                    ModBlocks.INU_WOOD_WALL_SIGN_101.get()
+//            ).build(null));
+
+//    public static final RegistryObject<TileEntityType<InuSignTileEntity>> SIGN_TILE_ENTITIES =
+//            TILE_ENTITIES.register("inu_sign", () -> TileEntityType.Builder.create(InuSignTileEntity::new,
+//                    ModBlocks.INU_WOOD_SIGN.get(),
+//                    ModBlocks.INU_WOOD_WALL_SIGN.get()
+//            ).build(null));
 
 
     public static void register(IEventBus eventBus) {

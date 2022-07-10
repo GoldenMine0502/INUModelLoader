@@ -4,13 +4,13 @@ import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
 import kr.goldenmine.inumodelloader.inumodelloader.tileentity.ModTileEntities;
+import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntityRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -95,7 +95,9 @@ public class Inumodelloader {
 
 
 
-            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignTileEntityRenderer::new);
+            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), InuSignTileEntityRenderer::new);
+            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES_101.get(), InuSignTileEntityRenderer::new);
+//            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES_101.get(), InuSignTileEntityRenderer::new);
             Atlases.addWoodType(ModWoodTypes.INUWood);
         });
     }

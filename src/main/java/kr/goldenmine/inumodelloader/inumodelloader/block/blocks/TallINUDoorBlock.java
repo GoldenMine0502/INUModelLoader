@@ -1,13 +1,11 @@
 package kr.goldenmine.inumodelloader.inumodelloader.block.blocks;
-import java.util.Random;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import kr.goldenmine.inumodelloader.inumodelloader.properties.TallINUDoorStateProperties;
+import kr.goldenmine.inumodelloader.inumodelloader.properties.BlockStateProperties;
 import kr.goldenmine.inumodelloader.inumodelloader.properties.TripleBlockPart;
 import net.minecraft.block.*;
-import org.apache.commons.lang3.NotImplementedException;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.material.Material;
@@ -21,7 +19,6 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoorHingeSide;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -34,7 +31,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -42,11 +38,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("deprecation")
 public class TallINUDoorBlock extends Block {
-    public static final EnumProperty<TripleBlockPart> THIRD = TallINUDoorStateProperties.TRIPLE_BLOCK_THIRD;
+    public static final EnumProperty<TripleBlockPart> THIRD = BlockStateProperties.TRIPLE_BLOCK_THIRD;
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-    public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
-    public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    public static final BooleanProperty OPEN = net.minecraft.state.properties.BlockStateProperties.OPEN;
+    public static final EnumProperty<DoorHingeSide> HINGE = net.minecraft.state.properties.BlockStateProperties.DOOR_HINGE;
+    public static final BooleanProperty POWERED = net.minecraft.state.properties.BlockStateProperties.POWERED;
     protected static final VoxelShape SOUTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
     protected static final VoxelShape NORTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
     protected static final VoxelShape WEST_AABB = Block.makeCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
