@@ -14,8 +14,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
 // https://github.com/Myrathi/FlatSignsEx
 public class InuWallSignBlock extends WallSignBlock {
 
@@ -31,13 +29,12 @@ public class InuWallSignBlock extends WallSignBlock {
         return signType;
     }
 
-    @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new InuSignTileEntity(signType);
     }
 
-    // 공중에 뜰 수 있도록 함
+    // 공중에 뜨도록 함
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         return true;

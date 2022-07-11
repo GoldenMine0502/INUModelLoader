@@ -23,6 +23,8 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEntity> {
@@ -145,7 +147,7 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         StringTextComponent stringTextComponent3 = new StringTextComponent("1234567890123456");
         StringTextComponent stringTextComponent4 = new StringTextComponent("12345678901234567890");
 
-        List<StringTextComponent> texts = List.of(stringTextComponent1, stringTextComponent2, stringTextComponent3, stringTextComponent4);
+        List<StringTextComponent> texts = new ArrayList<>(Arrays.asList(stringTextComponent1, stringTextComponent2, stringTextComponent3, stringTextComponent4));
 //        StringTextComponent stringTextComponent3 = new StringTextComponent("test3");
 //        StringTextComponent stringTextComponent4 = new StringTextComponent("test4");
 
