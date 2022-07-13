@@ -25,11 +25,11 @@ public class ModItems {
     public static final RegistryObject<Item> INU_ITEM = ITEMS.register("inu_item",
             () -> new Item(new Item.Properties().group(ModItemGroup.INU_MODELS_TAB)));
 
-    public static final RegistryObject<Item> INU_WOOD_SIGN = ITEMS.register("inu_wood_sign",
-            () -> new InuSignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.INU_MODELS_TAB), ModBlocks.INU_WOOD_SIGN.get(), ModBlocks.INU_WOOD_WALL_SIGN.get()));
+//    public static final RegistryObject<Item> INU_WOOD_SIGN = ITEMS.register("inu_wood_sign",
+//            () -> new InuSignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.INU_MODELS_TAB), ModBlocks.INU_WOOD_SIGN.get(), ModBlocks.INU_WOOD_WALL_SIGN.get()));
 
-    public static final RegistryObject<Item> INU_WOOD_SIGN_101 = ITEMS.register("inu_wood_sign_101",
-            () -> new InuSignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.INU_MODELS_TAB), ModBlocks.INU_WOOD_SIGN_101.get(), ModBlocks.INU_WOOD_WALL_SIGN_101.get()));
+//    public static final RegistryObject<Item> INU_WOOD_SIGN_101 = ITEMS.register("inu_wood_sign_101",
+//            () -> new InuSignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.INU_MODELS_TAB), ModBlocks.INU_WOOD_SIGN_101.get(), ModBlocks.INU_WOOD_WALL_SIGN_101.get()));
 
 //    public static final RegistryObject<Item> TALL_INU_DOOR_ITEM = ITEMS.register("inu_item",
 //            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.INU_MODELS_TAB)));

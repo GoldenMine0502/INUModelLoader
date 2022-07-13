@@ -2,11 +2,16 @@ package kr.goldenmine.inumodelloader.inumodelloader.tileentity;
 
 import net.minecraft.tileentity.SignTileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.fml.RegistryObject;
+
+import java.util.function.Supplier;
 
 public class InuSignTileEntity extends SignTileEntity {
 //    private final String inuModelType;
 
     private String signType;
+
+    private Supplier<TileEntityType<?>> tileEntityType;
 
     public InuSignTileEntity() {
 
@@ -22,11 +27,17 @@ public class InuSignTileEntity extends SignTileEntity {
 
     @Override
     public TileEntityType<?> getType() {
-        switch (signType) {
-            case "101":
-                return ModTileEntities.SIGN_TILE_ENTITIES_101.get();
-        }
-        return ModTileEntities.SIGN_TILE_ENTITIES.get();
+//        if(tileEntityType != null) {
+//            System.out.println("get type is not null");
+//            return tileEntityType.get();
+//        }
+
+        return tileEntityType.get();
+//        return ModTileEntities.SIGN_TILE_ENTITIES.get();
+    }
+
+    public void setTileEntityType(RegistryObject<TileEntityType<InuSignTileEntity>> sign_tile_entities) {
+        this.tileEntityType = sign_tile_entities::get;
     }
 
 //    public String getInuModelType() {

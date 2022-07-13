@@ -2,7 +2,7 @@ package kr.goldenmine.inumodelloader.inumodelloader.tileentity;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import kr.goldenmine.inumodelloader.inumodelloader.data.SignSet;
+import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
 import kr.goldenmine.inumodelloader.inumodelloader.util.SignText;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;

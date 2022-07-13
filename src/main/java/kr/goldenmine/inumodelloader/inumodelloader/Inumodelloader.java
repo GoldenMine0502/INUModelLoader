@@ -3,19 +3,25 @@ package kr.goldenmine.inumodelloader.inumodelloader;
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
+import kr.goldenmine.inumodelloader.inumodelloader.sign.SignModelRegistry;
+import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntity;
 import kr.goldenmine.inumodelloader.inumodelloader.tileentity.ModTileEntities;
 import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntityRenderer;
+import kr.goldenmine.signmodelcreator.SignModelCreator;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.tileentity.SignTileEntity;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -40,12 +46,18 @@ public class Inumodelloader {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
+
     public Inumodelloader() {
+
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModTileEntities.register(eventBus);
+
+        SignModelRegistry.registerSign("default");
+        SignModelRegistry.registerSign("101");
+        SignModelRegistry.register(eventBus);
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -94,9 +106,10 @@ public class Inumodelloader {
             RenderTypeLookup.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutoutMipped);
             RenderTypeLookup.setRenderLayer(ModBlocks.TEST_OBJ_BLOCK.get(), cutoutMipped);
 
-            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), InuSignTileEntityRenderer::new);
-            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES_101.get(), InuSignTileEntityRenderer::new);
-//            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES_101.get(), InuSignTileEntityRenderer::new);
+            SignModelRegistry.registerAllRenderers();
+//            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), InuSignTileEntityRenderer::new);
+//            ClientRegistry.bindTileEntityRenderer(entity.get(), InuSignTileEntityRenderer::new);
+
             Atlases.addWoodType(ModWoodTypes.INUWood);
         });
     }

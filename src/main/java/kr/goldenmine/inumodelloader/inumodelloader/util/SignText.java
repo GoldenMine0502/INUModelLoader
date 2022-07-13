@@ -1,7 +1,5 @@
 package kr.goldenmine.inumodelloader.inumodelloader.util;
 
-import kr.goldenmine.inumodelloader.inumodelloader.data.SignSet;
-
 import java.awt.*;
 
 public class SignText {

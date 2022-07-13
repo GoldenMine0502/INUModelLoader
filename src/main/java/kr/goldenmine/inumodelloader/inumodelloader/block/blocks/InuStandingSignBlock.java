@@ -33,11 +33,6 @@ public class InuStandingSignBlock extends StandingSignBlock {
         return new InuSignTileEntity(signType);
     }
 
-    @Override
-    public boolean eventReceived(BlockState state, World worldIn, BlockPos pos, int id, int param) {
-        return false;
-    }
-
     // 공중에 뜰 수 있도록 함
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {

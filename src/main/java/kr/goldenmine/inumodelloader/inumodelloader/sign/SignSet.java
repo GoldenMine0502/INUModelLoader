@@ -1,4 +1,4 @@
-package kr.goldenmine.inumodelloader.inumodelloader.data;
+package kr.goldenmine.inumodelloader.inumodelloader.sign;
 
 import kr.goldenmine.inumodelloader.inumodelloader.util.Align;
 import kr.goldenmine.inumodelloader.inumodelloader.util.Point;
@@ -15,9 +15,9 @@ public class SignSet {
     static {
         List<SignText> signTexts = new ArrayList<>();
 
-        signTexts.add(new SignText(new Point(10, 12), "기계제도실", 1.75f, Color.WHITE, Align.LEFT));
-        signTexts.add(new SignText(new Point(10, 26), "Mechanical Drawing Room", 0.75f, Color.LIGHT_GRAY, Align.LEFT));
-        signTexts.add(new SignText(new Point(184, 26), "08-101", 1f, Color.BLUE.brighter(), Align.RIGHT));
+        signTexts.add(new SignText(new Point(10, 10), "기계제도실", 1.75f, Color.WHITE, Align.LEFT));
+        signTexts.add(new SignText(new Point(10, 29), "Mechanical Drawing Room", 0.75f, Color.LIGHT_GRAY, Align.LEFT));
+        signTexts.add(new SignText(new Point(184, 30), "08-101", 1f, Color.BLUE.brighter(), Align.RIGHT));
 
         texts.put("101", signTexts);
     }
