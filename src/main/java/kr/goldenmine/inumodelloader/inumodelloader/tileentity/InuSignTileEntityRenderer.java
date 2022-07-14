@@ -132,7 +132,6 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
                         break;
                 }
 
-
                 matrixStackIn.push();
                 float textMatrixInnerMultiplier = 0.010416667F * signText.getMultiplier();
                 matrixStackIn.scale(textMatrixInnerMultiplier, -textMatrixInnerMultiplier, textMatrixInnerMultiplier);
