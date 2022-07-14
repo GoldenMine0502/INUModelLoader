@@ -3,6 +3,8 @@ package kr.goldenmine.inumodelloader.inumodelloader.tileentity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
+import kr.goldenmine.inumodelloader.inumodelloader.util.Align;
+import kr.goldenmine.inumodelloader.inumodelloader.util.SignInfo;
 import kr.goldenmine.inumodelloader.inumodelloader.util.SignText;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;
@@ -42,7 +44,17 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         matrixStackIn.push();
 
         renderModel(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
-        renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
+
+        matrixStackIn.push();
+        matrixStackIn.translate(0.0D, 0.33333334D, 0.046666667D); // 그냥 표지판 앞면에 쓰기
+        renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelDefault());
+        matrixStackIn.pop();
+
+        matrixStackIn.push();
+        matrixStackIn.translate(0.0D, 0.33333334D, -0.046666667D); // 뒷면에 쓰기 (z가 마이너스)
+        matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180)); // 180도 회전하기
+        renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelFliped());
+        matrixStackIn.pop();
 
         matrixStackIn.pop();
     }
@@ -74,16 +86,15 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         matrixStackIn.pop();
     }
 
-    private static int whiteColor = NativeImage.getCombined(255, 255, 255, 255);
-
-    public void renderText(InuSignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
+    public void renderText(InuSignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn, RepositionModel repositionModel) {
         FontRenderer fontrenderer = this.renderDispatcher.getFontRenderer();
-        matrixStackIn.translate(0.0D, 0.33333334D, 0.046666667D);
 
         String signType = tileEntityIn.getSignType();
-        List<SignText> texts = SignSet.getTexts(signType);
+        SignInfo info = SignSet.getSignInfo(signType);
 
-        if (texts != null) {
+        if (info != null) {
+            List<SignText> texts = info.getTexts();
+
             for (int i = 0; i < texts.size(); i++) {
 
                 SignText signText = texts.get(i);
@@ -98,9 +109,18 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
                 double y = signText.getPoint().getY() - 24;
                 int color = signText.getColor();
 
+                // (거의) 뒤집기를 위한 좌표 adapt
+                x = repositionModel.adaptX(x);
+                y = repositionModel.adaptY(y);
+                Align align = repositionModel.adaptAlign(signText.getAlign());
+
+                // 중간 기준에서 배율이 바뀌기 때문에 그만큼 x,y좌표를 조정해준다.
+                x /= signText.getMultiplier();
+                y /= signText.getMultiplier();
+
                 float textWidth = (float) fontrenderer.func_243245_a(processor);
 
-                switch (signText.getAlign()) {
+                switch (align) {
                     case LEFT:
                         // continue
                         break;
@@ -112,9 +132,6 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
                         break;
                 }
 
-                // 중간 기준에서 배율이 바뀌기 때문에 그만큼 x,y좌표를 조정해준다.
-                x /= signText.getMultiplier();
-                y /= signText.getMultiplier();
 
                 matrixStackIn.push();
                 float textMatrixInnerMultiplier = 0.010416667F * signText.getMultiplier();
@@ -212,6 +229,47 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         }
 
         return Atlases.SIGN_MATERIALS.get(woodtype);
+    }
+
+    public interface RepositionModel {
+        double adaptX(double x);
+        double adaptY(double y);
+
+        Align adaptAlign(Align align);
+    }
+
+    public static class RepositionModelDefault implements RepositionModel {
+        @Override
+        public double adaptX(double x) {
+            return x;
+        }
+
+        @Override
+        public double adaptY(double y) {
+            return y;
+        }
+
+        @Override
+        public Align adaptAlign(Align align) {
+            return align;
+        }
+    }
+
+    public static class RepositionModelFliped implements RepositionModel {
+        @Override
+        public double adaptX(double x) {
+            return -x;
+        }
+
+        @Override
+        public double adaptY(double y) {
+            return y;
+        }
+
+        @Override
+        public Align adaptAlign(Align align) {
+            return align.getFliped();
+        }
     }
 
     @OnlyIn(Dist.CLIENT)

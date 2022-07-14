@@ -13,10 +13,6 @@ public class InuSignTileEntity extends SignTileEntity {
 
     private Supplier<TileEntityType<?>> tileEntityType;
 
-    public InuSignTileEntity() {
-
-    }
-
     public InuSignTileEntity(String signType) {
         this.signType = signType;
     }
@@ -27,20 +23,10 @@ public class InuSignTileEntity extends SignTileEntity {
 
     @Override
     public TileEntityType<?> getType() {
-//        if(tileEntityType != null) {
-//            System.out.println("get type is not null");
-//            return tileEntityType.get();
-//        }
-
         return tileEntityType.get();
-//        return ModTileEntities.SIGN_TILE_ENTITIES.get();
     }
 
     public void setTileEntityType(RegistryObject<TileEntityType<InuSignTileEntity>> sign_tile_entities) {
         this.tileEntityType = sign_tile_entities::get;
     }
-
-//    public String getInuModelType() {
-//        return inuModelType;
-//    }
 }

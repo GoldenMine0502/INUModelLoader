@@ -40,4 +40,15 @@ public class SignText {
     public Align getAlign() {
         return align;
     }
+
+    @Override
+    public String toString() {
+        return "SignText{" +
+                "point=" + point +
+                ", text='" + text + '\'' +
+                ", align=" + align +
+                ", color=" + color +
+                ", multiplier=" + multiplier +
+                '}';
+    }
 }

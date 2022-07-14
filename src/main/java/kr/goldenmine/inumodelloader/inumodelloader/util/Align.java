@@ -29,4 +29,14 @@ public enum Align {
 
         throw new RuntimeException("no align about recevied text: " + text);
     }
+
+    public Align getFliped() {
+        switch(this) {
+            case LEFT: return RIGHT;
+            case RIGHT: return LEFT;
+            case CENTER: return CENTER;
+        }
+
+        return null;
+    }
 }

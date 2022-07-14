@@ -46,7 +46,7 @@ public class SignModelRegistry {
     private SignModelRegistry(String type) {
         this.type = type;
 
-        blockSign = SIGN_BLOCKS.register("inu_wood_sign_" + type,
+        blockSign = SIGN_BLOCKS.register("inu_sign_" + type,
                 () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, type) {
                     @Nullable
                     @Override
@@ -55,7 +55,7 @@ public class SignModelRegistry {
                     }
                 });
 
-        blockWallSign = SIGN_BLOCKS.register("inu_wood_wall_sign_" + type,
+        blockWallSign = SIGN_BLOCKS.register("inu_wall_sign_" + type,
                 () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, type) {
                     @Override
                     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
@@ -63,12 +63,12 @@ public class SignModelRegistry {
                     }
                 });
 
-        itemSign = SIGN_ITEMS.register("inu_wood_sign_" + type,
+        itemSign = SIGN_ITEMS.register("inu_sign_" + type,
                 () -> new InuSignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.INU_MODELS_TAB), blockSign.get(), blockWallSign.get()));
 
 
         tileEntity =
-                TILE_ENTITIES.register("inu_wood_sign_" + type, () -> TileEntityType.Builder.create(SignModelRegistry.this::createTileEntity,
+                TILE_ENTITIES.register("inu_sign_" + type, () -> TileEntityType.Builder.create(SignModelRegistry.this::createTileEntity,
                         blockSign.get(),
                         blockWallSign.get()
                 ).build(null));
@@ -104,6 +104,10 @@ public class SignModelRegistry {
         SignModelRegistry registry = new SignModelRegistry(type);
 
         registryList.add(registry);
+    }
+
+    public static void registerAllSigns() {
+        SignSet.getSignInfoMap().keySet().stream().sorted().forEach(SignModelRegistry::registerSign);
     }
 
     public static void register(IEventBus eventBus) {
