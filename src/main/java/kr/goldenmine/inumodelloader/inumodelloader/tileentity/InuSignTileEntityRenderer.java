@@ -43,23 +43,23 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         String signType = tileEntityIn.getSignType();
         SignInfo info = SignSet.getSignInfo(signType);
 
-        if(info != null) {
+        if (info != null) {
             matrixStackIn.push();
 
             final float yMultiplier = 0.5F;
 
-        renderModel(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, yMultiplier);
+            renderModel(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, yMultiplier);
 
             matrixStackIn.push();
             matrixStackIn.translate(0.0D, 0.33333334D * yMultiplier, 0.046666667D); // 그냥 표지판 앞면에 쓰기
-            renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelDefaultHalf(yMultiplier));
+            renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelDefault(yMultiplier));
 //        renderDebugText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
             matrixStackIn.pop();
 
             matrixStackIn.push();
             matrixStackIn.translate(0.0D, 0.33333334D * yMultiplier, -0.046666667D); // 뒷면에 쓰기 (z가 마이너스)
             matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180)); // 180도 회전하기
-            renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelFlipedHalf(yMultiplier));
+            renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelFlipped(yMultiplier));
 //        renderDebugText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
             matrixStackIn.pop();
 
@@ -240,6 +240,7 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
 
     public interface RepositionModel {
         double adaptX(double x);
+
         double adaptY(double y);
 
         float apaptScale(float scale);
@@ -254,27 +255,10 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         public RepositionModelDefault(float scale) {
             this.scale = scale;
         }
+
         @Override
         public double adaptX(double x) {
             return x;
-        }
-
-        @Override
-        public double adaptY(double y) {
-            return y;
-        }
-
-        @Override
-        public Align adaptAlign(Align align) {
-            return align;
-        }
-    }
-
-
-    public static class RepositionModelDefaultHalf implements RepositionModel {
-        @Override
-        public double adaptX(double x) {
-            return x / 2;
         }
 
         @Override
@@ -293,10 +277,33 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         }
     }
 
-    public static class RepositionModelFliped implements RepositionModel {
+
+//    public static class RepositionModelDefaultHalf implements RepositionModel {
+//        @Override
+//        public double adaptX(double x) {
+//            return x / 2;
+//        }
+//
+//        @Override
+//        public double adaptY(double y) {
+//            return y;
+//        }
+//
+//        @Override
+//        public float apaptScale(float scale) {
+//            return scale * this.scale;
+//        }
+//
+//        @Override
+//        public Align adaptAlign(Align align) {
+//            return align;
+//        }
+//    }
+
+    public static class RepositionModelFlipped implements RepositionModel {
         private float scale;
 
-        public RepositionModelFliped(float scale) {
+        public RepositionModelFlipped(float scale) {
             this.scale = scale;
         }
 
@@ -311,24 +318,6 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         }
 
         @Override
-        public Align adaptAlign(Align align) {
-            return align.getFliped();
-        }
-    }
-
-
-    public static class RepositionModelFlipedHalf implements RepositionModel {
-        @Override
-        public double adaptX(double x) {
-            return -x / 2;
-        }
-
-        @Override
-        public double adaptY(double y) {
-            return y;
-        }
-
-        @Override
         public float apaptScale(float scale) {
             return scale * this.scale;
         }
@@ -338,6 +327,29 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
             return align.getFliped();
         }
     }
+
+
+//    public static class RepositionModelFlipedHalf implements RepositionModel {
+//        @Override
+//        public double adaptX(double x) {
+//            return -x / 2;
+//        }
+//
+//        @Override
+//        public double adaptY(double y) {
+//            return y;
+//        }
+//
+//        @Override
+//        public float apaptScale(float scale) {
+//            return scale * this.scale;
+//        }
+//
+//        @Override
+//        public Align adaptAlign(Align align) {
+//            return align.getFliped();
+//        }
+//    }
 
     @OnlyIn(Dist.CLIENT)
     public static final class SignModel extends Model {
