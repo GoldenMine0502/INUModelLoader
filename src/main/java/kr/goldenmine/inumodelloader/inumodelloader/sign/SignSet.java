@@ -36,8 +36,8 @@ public class SignSet {
         return value;
     }
 
-    public static void loadAll(InputStream sheetInputStream) {
-        try(InputStream inputStream = sheetInputStream) {
+    public static void loadAll(InputStream inputStream) {
+        try {
             if(inputStream != null) {
                 XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
                 XSSFSheet sheet = workbook.getSheetAt(0);
@@ -75,17 +75,24 @@ public class SignSet {
                             texts.add(signText);
                         }
 
-                        System.out.println("add sign type: " + signType + ", " + imageType + ", " + texts);
-                        signInfoMap.put(signType, new SignInfo(signType, imageType, texts));
+                        if(signType.length() > 0) {
+                            System.out.println("add sign type: " + signType + ", " + imageType + ", " + texts);
+                            signInfoMap.put(signType, new SignInfo(signType, imageType, texts));
+                        } else {
+                            System.out.println("empty: " + imageType + ", " + texts);
+                        }
                     } catch(Exception ex) {
                         ex.printStackTrace();
                     }
                 }
+
+                inputStream.close();
             } else {
-                throw new RuntimeException("no assets: assets/inumodelloader/signs/signtext.xlsx");
+                throw new RuntimeException("no assets");
             }
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("error loading excel file");
         }
     }
 

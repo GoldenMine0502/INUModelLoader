@@ -46,7 +46,6 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
 
         renderModel(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, yMultiplier);
 
-
         matrixStackIn.push();
         matrixStackIn.translate(0.0D, 0.33333334D * yMultiplier, 0.046666667D); // 그냥 표지판 앞면에 쓰기
         renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelDefault(yMultiplier));
