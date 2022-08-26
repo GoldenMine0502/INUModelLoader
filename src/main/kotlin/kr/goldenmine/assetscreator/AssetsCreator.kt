@@ -10,7 +10,7 @@ import javax.imageio.ImageIO
 
 fun main(args: Array<String>) {
     // woodType이 텍스쳐 종류임
-    val inputStream = File("src/main/resources/assets/inumodelloader/signs/signtext.xls").inputStream()
+    val inputStream = File("src/main/resources/data/signtext.xlsx").inputStream()
     SignSet.loadAll(inputStream)
 
     // load all sign contents
@@ -93,7 +93,8 @@ fun createItemImage(type: String): BufferedImage {
         graphics.drawString(type, 0, 28)
     } else {
         graphics.drawString(type.substring(0, 3), 0, 28)
-        graphics.drawString(type.substring(3), 0, 60)
+        graphics.font = graphics.font.deriveFont(24F)
+        graphics.drawString(type.substring(3), 0, 54)
     }
     return image
 }

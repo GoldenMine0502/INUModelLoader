@@ -46,13 +46,13 @@ public class SignSet {
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
 
-        for(int i = 0 ; i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
-            if(ch == '\"')
+            if (ch == '\"')
                 on = !on;
 
-            if(ch == ',' && !on) {
+            if (ch == ',' && !on) {
                 list.add(sb.toString());
                 sb.setLength(0);
             } else {
@@ -95,7 +95,7 @@ public class SignSet {
                 LOGGER.info("add sign type: " + signType + ", " + imageType + ", " + texts);
 //                        System.out.println("add sign type: " + signType + ", " + imageType + ", " + texts);
                 signInfoMap.put(signType, new SignInfo(signType, imageType, texts));
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
 
@@ -108,52 +108,65 @@ public class SignSet {
         LOGGER.info("b");
         XSSFSheet sheet = workbook.getSheetAt(0);
         LOGGER.info("c");
+        try {
+            if (inputStream != null) {
 
-        Iterator<Row> rows = sheet.iterator();
-        LOGGER.info("d");
+                Iterator<Row> rows = sheet.iterator();
+                LOGGER.info("d");
 
-        // skip 5회
-        for (int i = 0; i < 5; i++) rows.next();
-        LOGGER.info("e");
+                // skip 5회
+                for (int i = 0; i < 5; i++) rows.next();
+                LOGGER.info("e");
 
 
-        while (rows.hasNext()) {
-            Row row = rows.next();
+                while (rows.hasNext()) {
+                    Row row = rows.next();
 
-            try {
-                String signType = getStableCellStringValue(row.getCell(1));
-                String imageType = getStableCellStringValue(row.getCell(2));
+                    try {
+                        String signType = getStableCellStringValue(row.getCell(1));
+                        String imageType = getStableCellStringValue(row.getCell(2));
 
-                int numberOfPoints = (int) row.getCell(3).getNumericCellValue();
+                        int numberOfPoints = (int) row.getCell(3).getNumericCellValue();
 
-                List<SignText> texts = new ArrayList<SignText>();
+                        List<SignText> texts = new ArrayList<SignText>();
 
-                for (int i = 0; i < numberOfPoints; i++) {
-                    int index = 6 * i + 4;
+                        for (int i = 0; i < numberOfPoints; i++) {
+                            int index = 6 * i + 4;
 
-                    double x = row.getCell(index).getNumericCellValue();
-                    double y = row.getCell(index + 1).getNumericCellValue();
-                    String text = getStableCellStringValue(row.getCell(index + 2));
-                    float multiplier = (float) row.getCell(index + 3).getNumericCellValue();
+                            double x = row.getCell(index).getNumericCellValue();
+                            double y = row.getCell(index + 1).getNumericCellValue();
+                            String text = getStableCellStringValue(row.getCell(index + 2));
+                            float multiplier = (float) row.getCell(index + 3).getNumericCellValue();
 
-                    String colorCell = getStableCellStringValue(row.getCell(index + 4)).replaceFirst("#", "");
-                    int color = colorCell.length() == 8 ? Integer.parseInt(colorCell, 16) : ((Integer.parseInt(colorCell, 16) & 0x00FFFFFF) | (0x000000FF << 24));
+                            String colorCell = getStableCellStringValue(row.getCell(index + 4)).replaceFirst("#", "");
+                            int color = colorCell.length() == 8 ? Integer.parseInt(colorCell, 16) : ((Integer.parseInt(colorCell, 16) & 0x00FFFFFF) | (0x000000FF << 24));
 
-                    Align align = Align.getAlignFromString(getStableCellStringValue(row.getCell(index + 5)));
-                    SignText signText = new SignText(new Point(x, y), text, multiplier, color, align);
+                            Align align = Align.getAlignFromString(getStableCellStringValue(row.getCell(index + 5)));
+                            SignText signText = new SignText(new Point(x, y), text, multiplier, color, align);
 
-                    texts.add(signText);
+                            texts.add(signText);
+                        }
+
+                        if (signType.length() > 0) {
+                            System.out.println("add sign type: " + signType + ", " + imageType + ", " + texts);
+                            signInfoMap.put(signType, new SignInfo(signType, imageType, texts));
+                        } else {
+                            System.out.println("empty: " + imageType + ", " + texts);
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                 }
-
-                LOGGER.info("add sign type: " + signType + ", " + imageType + ", " + texts);
-//                        System.out.println("add sign type: " + signType + ", " + imageType + ", " + texts);
-                signInfoMap.put(signType, new SignInfo(signType, imageType, texts));
-            } catch (Exception ex) {
-                LOGGER.info(ex.toString());
-                Arrays.stream(ex.getStackTrace()).forEach(it -> {
-                    LOGGER.info(it.toString());
-                });
+                inputStream.close();
+            } else {
+                throw new RuntimeException("no assets");
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("error loading excel file");
+            Arrays.stream(e.getStackTrace()).forEach(it -> {
+                LOGGER.info(it.toString());
+            });
         }
         LOGGER.info("loaded signtypes");
     }
