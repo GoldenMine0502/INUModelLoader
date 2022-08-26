@@ -1,19 +1,16 @@
 package kr.goldenmine.assetscreator
 
-import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet
-import net.minecraft.client.Minecraft
-import net.minecraft.util.ResourceLocation
+import kr.goldenmine.inumodelloader.inumodelloader.util.SignInfo
 import java.awt.Color
 import java.awt.Graphics2D
 import java.awt.image.BufferedImage
 import java.io.File
-import java.io.IOException
 import javax.imageio.ImageIO
 
 fun main(args: Array<String>) {
     // woodType이 텍스쳐 종류임
-    val inputStream = File("src/main/resources/assets/inumodelloader/signs/signtext.xlsx").inputStream()
+    val inputStream = File("src/main/resources/assets/inumodelloader/signs/signtext.xls").inputStream()
     SignSet.loadAll(inputStream)
 
     // load all sign contents
@@ -74,6 +71,9 @@ fun main(args: Array<String>) {
         ImageIO.write(image, "png", imageFile)
 
         image.flush()
+        println("{")
+        println("SignSet.signInfoMap.put(\"$signType\", new SignInfo(\"$signType\", \"${signInfo.signTextureType}\", \"$${signInfo.texts}\")));")
+        println("}")
     }
 }
 

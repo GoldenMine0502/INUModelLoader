@@ -2,12 +2,13 @@ package kr.goldenmine.inumodelloader.inumodelloader;
 
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
+import kr.goldenmine.inumodelloader.inumodelloader.events.ServerEvents;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
+import kr.goldenmine.inumodelloader.inumodelloader.network.AssetNetwork;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignModelRegistry;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
-import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntity;
 import kr.goldenmine.inumodelloader.inumodelloader.tileentity.ModTileEntities;
-import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntityRenderer;
+import kr.goldenmine.inumodelloader.inumodelloader.util.SignText;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
@@ -15,16 +16,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.tileentity.SignTileEntity;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -35,8 +32,12 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -50,16 +51,44 @@ public class Inumodelloader {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
+//    @SidedProxy(clientSide="com.moh.ui.proxy.ClientProxy",serverSide="com.moh.ui.proxy.CommonProxy") public static CommonProxy proxy;
 
     public Inumodelloader() {
-
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        eventBus.addListener(this::commonSetup);
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModTileEntities.register(eventBus);
 
-        String[] signs = new String[] {
+        LOGGER.info("home path: " + System.getProperty("user.dir"));
+
+        // for server
+        File file = new File(System.getProperty("user.dir") + "/signs/signtext.csv");
+        LOGGER.info("exists: " + file.exists());
+
+        if (file.exists()) {
+            List<String> list = new ArrayList<>();
+            try (BufferedReader is = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
+                String s;
+                while ((s = is.readLine()) != null) {
+                    list.add(s);
+                    LOGGER.info(s);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            SignSet.loadAll(list);
+//                try(InputStream is = new FileInputStream(file)) {
+//                    SignSet.loadAll(is);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+        }
+
+        String[] signs = new String[]{
                 "default",
                 "08-101",
                 "08-102",
@@ -161,7 +190,7 @@ public class Inumodelloader {
 
         };
 
-        for(int i = 0; i < signs.length; i++) {
+        for (int i = 0; i < signs.length; i++) {
             // TODO 아쉽게도 엑셀에서 실시간으로 불러오기는 불가능...
             SignModelRegistry.registerSign(signs[i]);
         }
@@ -181,14 +210,27 @@ public class Inumodelloader {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+//    @SubscribeEvent
+//    public void serverStarting(FMLServerStartingEvent e) {
+//        // Creating managerProvider
+//        managerProvider.register();
+//    }
+
+    public void commonSetup(final FMLCommonSetupEvent event) {
+        AssetNetwork.init();
+    }
+
     private void setup(final FMLCommonSetupEvent event) {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
+        MinecraftForge.EVENT_BUS.register(new ServerEvents());
+
         event.enqueueWork(() -> {
             WoodType.register(ModWoodTypes.INUWood);
         });
+
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_BLOCK.get(), RenderType.glintTranslucent());
     }
 
@@ -215,21 +257,57 @@ public class Inumodelloader {
             RenderTypeLookup.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutoutMipped);
             RenderTypeLookup.setRenderLayer(ModBlocks.TEST_OBJ_BLOCK.get(), cutoutMipped);
 
-            SignModelRegistry.registerAllRenderers();
+            SignModelRegistry.bindAllRenderers();
 //            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), InuSignTileEntityRenderer::new);
 //            ClientRegistry.bindTileEntityRenderer(entity.get(), InuSignTileEntityRenderer::new);
 
+            Atlases.addWoodType(ModWoodTypes.INUWood);
 
             // load all sign contents
+            // for client
             ResourceLocation sheetLocation = new ResourceLocation(Inumodelloader.MOD_ID, "signs/signtext.xlsx");
-            try {
-                InputStream is = Minecraft.getInstance().getResourceManager().getResource(sheetLocation).getInputStream();
+
+//            try (InputStream i = Minecraft.getInstance().getResourceManager().getResource(sheetLocation).getInputStream()) {
+//                List<String> list = new ArrayList<>();
+//
+//                try (BufferedReader is = new BufferedReader(new InputStreamReader(i, StandardCharsets.UTF_8))) {
+//                    String s;
+//                    while ((s = is.readLine()) != null) {
+//                        list.add(s);
+//                        LOGGER.info(s);
+//                    }
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                SignSet.loadAll(list);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+
+//            ResourceLocation sheetLocation = new ResourceLocation(Inumodelloader.MOD_ID, "signs/signtext.xlsx");
+//            LOGGER.info(sheetLocation.getPath());
+//            LOGGER.info(Minecraft.getInstance().getResourceManager().hasResource(sheetLocation) + "");
+//
+            try (InputStream is = Minecraft.getInstance().getResourceManager().getResource(sheetLocation).getInputStream()) {
                 SignSet.loadAll(is);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            Atlases.addWoodType(ModWoodTypes.INUWood);
+//            try(BufferedReader is = new BufferedReader(new InputStreamReader(Minecraft.getInstance().getResourceManager().getResource(sheetLocation).getInputStream(), StandardCharsets.UTF_8))) {
+//            try (BufferedReader is = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Inumodelloader.class.getResourceAsStream("signs/signtext.csv"))))) {
+//                String s;
+//                while ((s = is.readLine()) != null) {
+//                    LOGGER.info(s + "\n");
+//                }
+////                SignSet.loadAll(is);
+//            } catch (Exception ex) {
+//                LOGGER.info(ex.toString());
+//                Arrays.stream(ex.getStackTrace()).forEach(it -> {
+//                    LOGGER.info(it.toString());
+//                });
+//            }
         });
     }
 

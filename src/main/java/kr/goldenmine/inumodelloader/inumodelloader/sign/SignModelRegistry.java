@@ -1,16 +1,13 @@
 package kr.goldenmine.inumodelloader.inumodelloader.sign;
 
 import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader;
-import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
 import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuStandingSignBlock;
 import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuWallSignBlock;
 import kr.goldenmine.inumodelloader.inumodelloader.item.InuSignItem;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItemGroup;
-import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
 import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntity;
 import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntityRenderer;
-import kr.goldenmine.inumodelloader.inumodelloader.tileentity.ModTileEntities;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -116,7 +113,7 @@ public class SignModelRegistry {
         TILE_ENTITIES.register(eventBus);
     }
 
-    public static void registerAllRenderers() {
+    public static void bindAllRenderers() {
         registryList.forEach(it -> {
             ClientRegistry.bindTileEntityRenderer(it.tileEntity.get(), InuSignTileEntityRenderer::new);
         });
