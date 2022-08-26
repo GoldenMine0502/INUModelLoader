@@ -141,7 +141,7 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
                 }
 
                 matrixStackIn.push();
-                float textMatrixInnerMultiplier = repositionModel.apaptScale(0.010416667F) * signText.getMultiplier() * 0.5F;
+                float textMatrixInnerMultiplier = repositionModel.apaptScale(0.010416667F) * signText.getMultiplier();
                 matrixStackIn.scale(textMatrixInnerMultiplier, -textMatrixInnerMultiplier, textMatrixInnerMultiplier);
 
                 fontrenderer.drawEntityText(processor, (float) x, (float) y, color, false, matrixStackIn.getLast().getMatrix(), bufferIn, false, 0, combinedLightIn);
