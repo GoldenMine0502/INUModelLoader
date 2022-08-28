@@ -68,9 +68,9 @@ fun main() {
             ImageIO.write(image, "png", imageFile)
 
             image.flush()
-            println("{")
+//            println("{")
             println("SignSet.signInfoMap.put(\"$signType\", new SignInfo(\"$signType\", \"${signInfo.signTextureType}\", \"$${signInfo.texts}\")));")
-            println("}")
+//            println("}")
         } else {
             blockStateFile.delete()
             blockStateWallFile.delete()
