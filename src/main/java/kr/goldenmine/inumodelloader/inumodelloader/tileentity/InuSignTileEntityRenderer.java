@@ -34,30 +34,35 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
 
     private Minecraft mc = Minecraft.getInstance();
 
+    private SignInfo info;
+
     public InuSignTileEntityRenderer(TileEntityRendererDispatcher rendererDispatcherIn) {
         super(rendererDispatcherIn);
     }
 
     @Override
     public void render(InuSignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
-        String signType = tileEntityIn.getSignType();
-        SignInfo info = SignSet.getSignInfo(signType);
+        if(info == null) {
+            String signType = tileEntityIn.getSignType();
+            info = SignSet.getSignInfo(signType);
+        }
 
         if (info != null) {
             matrixStackIn.push();
 
-            final float yMultiplier = 0.5F;
+            final float xMultiplier = info.getOverallMultiplier() * 2;
+            final float yMultiplier = info.getOverallMultiplier();
 
-            renderModel(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, yMultiplier);
+            renderModel(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, xMultiplier, yMultiplier);
 
             matrixStackIn.push();
-            matrixStackIn.translate(0.0D, 0.33333334D * yMultiplier, 0.046666667D); // 그냥 표지판 앞면에 쓰기
+            matrixStackIn.translate(0.0D, 0.33333334D * yMultiplier, 0.046666667D * yMultiplier * 2); // 그냥 표지판 앞면에 쓰기
             renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelDefault(yMultiplier));
 //        renderDebugText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
             matrixStackIn.pop();
 
             matrixStackIn.push();
-            matrixStackIn.translate(0.0D, 0.33333334D * yMultiplier, -0.046666667D); // 뒷면에 쓰기 (z가 마이너스)
+            matrixStackIn.translate(0.0D, 0.33333334D * yMultiplier, -0.046666667D * yMultiplier * 2); // 뒷면에 쓰기 (z가 마이너스)
             matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180)); // 180도 회전하기
             renderText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, new RepositionModelFlipped(yMultiplier));
 //        renderDebugText(tileEntityIn, partialTicks, matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn);
@@ -67,38 +72,39 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
         }
     }
 
-    public void renderModel(InuSignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn, float yMultiplier) {
+    public void renderModel(InuSignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn, float xMultiplier, float yMultiplier) {
         BlockState blockstate = tileEntityIn.getBlockState();
 
-        final float modelMatrixMultiplier = 0.6666667F;
+        if(info != null) {
+            final float modelMatrixMultiplier = 0.6666667F;
+            final float translateX = info.getTranslateX();
+            final float translateY = info.getTranslateY();
 
-        if (blockstate.getBlock() instanceof StandingSignBlock) {
-            matrixStackIn.translate(0.5D, 0.5D, 0.5D);
-            float f1 = -((float) (blockstate.get(StandingSignBlock.ROTATION) * 360) / 16.0F);
-            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f1));
-            this.model.signStick.showModel = true;
-        } else {
-            matrixStackIn.translate(0.5D, 0.5D, 0.5D);
-            float f4 = -blockstate.get(WallSignBlock.FACING).getHorizontalAngle();
-            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f4));
-            matrixStackIn.translate(0.0D, -0.3125D * yMultiplier, -0.4375D);
-            this.model.signStick.showModel = false;
+            if (blockstate.getBlock() instanceof StandingSignBlock) {
+                matrixStackIn.translate(0.5D + translateX, 0.5D + translateY, 0.5D);
+                float f1 = -((float) (blockstate.get(StandingSignBlock.ROTATION) * 360) / 16.0F);
+                matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f1));
+                this.model.signStick.showModel = true;
+            } else {
+                matrixStackIn.translate(0.5D + translateX, 0.5D + translateY, 0.5D);
+                float f4 = -blockstate.get(WallSignBlock.FACING).getHorizontalAngle();
+                matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f4));
+                matrixStackIn.translate(0.0D, -0.3125D * yMultiplier, -0.4375D);
+                this.model.signStick.showModel = false;
+            }
+
+            matrixStackIn.push();
+            matrixStackIn.scale(modelMatrixMultiplier * xMultiplier, -modelMatrixMultiplier * yMultiplier, -modelMatrixMultiplier * xMultiplier);
+            RenderMaterial rendermaterial = getMaterial(blockstate.getBlock());
+            IVertexBuilder ivertexbuilder = rendermaterial.getBuffer(bufferIn, this.model::getRenderType);
+            this.model.signBoard.render(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn);
+            this.model.signStick.render(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn);
+            matrixStackIn.pop();
         }
-
-        matrixStackIn.push();
-        matrixStackIn.scale(modelMatrixMultiplier, -modelMatrixMultiplier * yMultiplier, -modelMatrixMultiplier);
-        RenderMaterial rendermaterial = getMaterial(blockstate.getBlock());
-        IVertexBuilder ivertexbuilder = rendermaterial.getBuffer(bufferIn, this.model::getRenderType);
-        this.model.signBoard.render(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn);
-        this.model.signStick.render(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn);
-        matrixStackIn.pop();
     }
 
     public void renderText(InuSignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn, RepositionModel repositionModel) {
         FontRenderer fontrenderer = this.renderDispatcher.getFontRenderer();
-
-        String signType = tileEntityIn.getSignType();
-        SignInfo info = SignSet.getSignInfo(signType);
 
         if (info != null) {
             List<SignText> texts = info.getTexts();
@@ -113,7 +119,7 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
                         .findFirst()
                         .orElse(IReorderingProcessor.field_242232_a);
 
-                double x = signText.getPoint().getX() - 48 * (48 / repositionModel.apaptScale(48)); // (0, 0)을 왼쪽 위로 하기 위해 -48과 -24
+                double x = signText.getPoint().getX() - 48 * Math.min(2, (48 / repositionModel.apaptScale(48))); // (0, 0)을 왼쪽 위로 하기 위해 -48과 -24
                 double y = signText.getPoint().getY() - 24;
                 int color = signText.getColor();
 

@@ -19,14 +19,14 @@ public class ServerEvents {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-    @SubscribeEvent
-    public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
-        // 플레이어에게 표지판 데이터 보내기
-        if(event.getPlayer() instanceof ServerPlayerEntity) {
-            LOGGER.info("sending sign data packet to " + event.getPlayer().getName());
-            AssetNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()), new AssetFileMessage(SignSet.getSignInfoMap()));
-        }
-    }
+//    @SubscribeEvent
+//    public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+//        // 플레이어에게 표지판 데이터 보내기
+//        if(event.getPlayer() instanceof ServerPlayerEntity) {
+//            LOGGER.info("sending sign data packet to " + event.getPlayer().getName());
+//            AssetNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) event.getPlayer()), new AssetFileMessage(SignSet.getSignInfoMap()));
+//        }
+//    }
 
 //    @SideOnly(Side.SERVER)
 //    @SubscribeEvent

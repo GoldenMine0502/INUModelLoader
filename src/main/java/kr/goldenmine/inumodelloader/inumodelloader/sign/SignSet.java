@@ -31,43 +31,52 @@ public class SignSet {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }).forEach(it -> {
+        }).forEach(line -> {
             try {
-                String signType = it[1];
+                String signType = line[1];
                 if(signType.length() > 0) {
-                    String imageType = it[2];
+                    String imageType = line[5];
 
-                    int numberOfPoints = Integer.parseInt(it[3]);
+                    int numberOfPoints = Integer.parseInt(line[6]);
+
+                    float overallMultiplier = Float.parseFloat(line[2]);
+
+                    float translateX = Float.parseFloat(line[3]);
+                    float translateY = Float.parseFloat(line[4]);
 
                     List<SignText> texts = new ArrayList<SignText>();
 
                     for (int i = 0; i < numberOfPoints; i++) {
-                        int index = 6 * i + 4;
+                        try {
+                            int index = 6 * i + 7;
 
-                        double x = Double.parseDouble(it[index]);
-                        double y = Double.parseDouble(it[index + 1]);
-                        String text = it[index + 2];
-                        float multiplier = Float.parseFloat(it[index + 3]);
+                            double x = Double.parseDouble(line[index]);
+                            double y = Double.parseDouble(line[index + 1]);
+                            String text = line[index + 2];
+                            float multiplier = Float.parseFloat(line[index + 3]);
 
-                        String colorCell = it[index + 4].replaceFirst("#", "");
-                        int color = colorCell.length() == 8 ? Integer.parseInt(colorCell, 16) : ((Integer.parseInt(colorCell, 16) & 0x00FFFFFF) | (0x000000FF << 24));
+                            String colorCell = line[index + 4].replaceFirst("#", "");
+                            int color = colorCell.length() == 8 ? Integer.parseInt(colorCell, 16) : ((Integer.parseInt(colorCell, 16) & 0x00FFFFFF) | (0x000000FF << 24));
 
-                        Align align = Align.getAlignFromString(it[index + 5]);
-                        SignText signText = new SignText(new Point(x, y), text, multiplier, color, align);
+                            Align align = Align.getAlignFromString(line[index + 5]);
+                            SignText signText = new SignText(new Point(x, y), text, multiplier, color, align);
 
-                        texts.add(signText);
+                            texts.add(signText);
+                        } catch(Exception ex) {
+                            logs.add("exception(adding)");
+                        }
                     }
 
                     logs.add(signType);
 //                    LOGGER.info("add sign type: " + signType + ", " + imageType + ", " + texts);
-                    signInfoMap.put(signType, new SignInfo(signType, imageType, texts));
+                    signInfoMap.put(signType, new SignInfo(signType, imageType, overallMultiplier, translateX, translateY, texts));
                 } else {
                     logs.add("empty");
 //                    LOGGER.info("empty: " + imageType + ", " + texts);
                 }
             } catch (Exception ex) {
                 logs.add("exception");
-//                ex.printStackTrace();
+                ex.printStackTrace();
             }
         });
 

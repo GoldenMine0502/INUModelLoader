@@ -11,6 +11,7 @@ import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntityR
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.WoodType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -40,11 +41,11 @@ public class SignModelRegistry {
 
     private String type;
 
-    private SignModelRegistry(String type) {
+    public SignModelRegistry(String type, WoodType texture) {
         this.type = type;
 
         blockSign = SIGN_BLOCKS.register("inu_sign_" + type,
-                () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, type) {
+                () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), texture, type) {
                     @Nullable
                     @Override
                     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
@@ -53,7 +54,7 @@ public class SignModelRegistry {
                 });
 
         blockWallSign = SIGN_BLOCKS.register("inu_wall_sign_" + type,
-                () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, type) {
+                () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), texture, type) {
                     @Override
                     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
                         return SignModelRegistry.this.createTileEntity();
@@ -63,13 +64,11 @@ public class SignModelRegistry {
         itemSign = SIGN_ITEMS.register("inu_sign_" + type,
                 () -> new InuSignItem(new Item.Properties().maxStackSize(16).group(ModItemGroup.INU_MODELS_TAB), blockSign.get(), blockWallSign.get()));
 
-
         tileEntity =
                 TILE_ENTITIES.register("inu_sign_" + type, () -> TileEntityType.Builder.create(SignModelRegistry.this::createTileEntity,
                         blockSign.get(),
                         blockWallSign.get()
                 ).build(null));
-
     }
 
 
@@ -97,14 +96,10 @@ public class SignModelRegistry {
         return entity;
     }
 
-    public static synchronized void registerSign(String type) {
-        SignModelRegistry registry = new SignModelRegistry(type);
+    public static synchronized void registerSign(String type, WoodType woodType) {
+        SignModelRegistry registry = new SignModelRegistry(type, woodType);
 
         registryList.add(registry);
-    }
-
-    public static void registerAllSigns() {
-        SignSet.getSignInfoMap().keySet().stream().sorted().forEach(SignModelRegistry::registerSign);
     }
 
     public static void register(IEventBus eventBus) {

@@ -13,6 +13,8 @@ fun main() {
     val list = File("src/main/resources/data/signtext.csv").bufferedReader().lines().toList()
     SignSet.loadCsvAll(list)
 
+    val removeMode = false
+
     SignSet.getSignInfoMap().forEach { (signType, signInfo) ->
         val folder = File("src/main/resources/assets/inumodelloader")
 
@@ -52,22 +54,30 @@ fun main() {
         val itemFile = File(folder, "models/item/inu_sign_$signType.json")
         val imageFile = File(folder, "textures/item/inu_sign_$signType.png")
 
-        if (!blockStateFile.exists()) blockStateFile.createNewFile()
-        if (!blockStateWallFile.exists()) blockStateWallFile.createNewFile()
-        if (!modelFile.exists()) modelFile.createNewFile()
-        if (!itemFile.exists()) itemFile.createNewFile()
-        if (!imageFile.exists()) imageFile.createNewFile()
+        if(!removeMode) {
+            if (!blockStateFile.exists()) blockStateFile.createNewFile()
+            if (!blockStateWallFile.exists()) blockStateWallFile.createNewFile()
+            if (!modelFile.exists()) modelFile.createNewFile()
+            if (!itemFile.exists()) itemFile.createNewFile()
+            if (!imageFile.exists()) imageFile.createNewFile()
 
-        blockStateFile.writeText(blockStateString)
-        blockStateWallFile.writeText(blockStateString)
-        modelFile.writeText(modelString)
-        itemFile.writeText(itemString)
-        ImageIO.write(image, "png", imageFile)
+            blockStateFile.writeText(blockStateString)
+            blockStateWallFile.writeText(blockStateString)
+            modelFile.writeText(modelString)
+            itemFile.writeText(itemString)
+            ImageIO.write(image, "png", imageFile)
 
-        image.flush()
-        println("{")
-        println("SignSet.signInfoMap.put(\"$signType\", new SignInfo(\"$signType\", \"${signInfo.signTextureType}\", \"$${signInfo.texts}\")));")
-        println("}")
+            image.flush()
+            println("{")
+            println("SignSet.signInfoMap.put(\"$signType\", new SignInfo(\"$signType\", \"${signInfo.signTextureType}\", \"$${signInfo.texts}\")));")
+            println("}")
+        } else {
+            blockStateFile.delete()
+            blockStateWallFile.delete()
+            modelFile.delete()
+            itemFile.delete()
+            imageFile.delete()
+        }
     }
 }
 
@@ -76,19 +86,19 @@ fun createItemImage(type: String): BufferedImage {
     val graphics = image.graphics as Graphics2D
 
     // 하얀색으로 배경 채우기
-    graphics.color = Color.WHITE
+    graphics.color = Color(255, 255, 255, 128)
     graphics.fillRect(0, 0, 64, 64)
 
     // 검은색으로 글씨 쓰기
     graphics.color = Color.BLACK
-    graphics.font = graphics.font.deriveFont(32F)
+    graphics.font = graphics.font.deriveFont(28F)
 
     if (type.length < 3) {
         graphics.drawString(type, 0, 28)
     } else {
         graphics.drawString(type.substring(0, 3), 0, 28)
         graphics.font = graphics.font.deriveFont(24F)
-        graphics.drawString(type.substring(3), 0, 54)
+        graphics.drawString(type.substring(3), 0, 52)
     }
     return image
 }

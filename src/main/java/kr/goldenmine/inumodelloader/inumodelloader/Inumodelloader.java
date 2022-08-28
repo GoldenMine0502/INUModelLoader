@@ -109,8 +109,15 @@ public class Inumodelloader {
 
         for (int i = 0; i < signs.length; i++) {
             // TODO 아쉽게도 엑셀에서 실시간으로 불러오기는 불가능...
-            SignModelRegistry.registerSign(signs[i]);
+            SignModelRegistry.registerSign(signs[i], ModWoodTypes.INUWood);
         }
+
+        SignModelRegistry.registerSign("ps", ModWoodTypes.INUWood);
+        SignModelRegistry.registerSign("ad", ModWoodTypes.INUWood);
+        SignModelRegistry.registerSign("manb", ModWoodTypes.INUWoodMan);
+        SignModelRegistry.registerSign("womanb", ModWoodTypes.INUWoodWoman);
+        SignModelRegistry.registerSign("stair0", ModWoodTypes.INUWood);
+        SignModelRegistry.registerSign("stair1", ModWoodTypes.INUWood);
 
         LOGGER.info("loaded " + signs.length + " sign models.");
 
@@ -119,10 +126,6 @@ public class Inumodelloader {
 //        FMLJavaModLoadingContext.get().getModEventBus().
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
@@ -135,20 +138,11 @@ public class Inumodelloader {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        MinecraftForge.EVENT_BUS.register(new ServerEvents());
-
+//        MinecraftForge.EVENT_BUS.register(new ServerEvents());
         event.enqueueWork(() -> {
             WoodType.register(ModWoodTypes.INUWood);
         });
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_BLOCK.get(), RenderType.glintTranslucent());
-    }
-
-    private void enqueueIMC(final InterModEnqueueEvent event) {
-
-    }
-
-    private void processIMC(final InterModProcessEvent event) {
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -163,6 +157,8 @@ public class Inumodelloader {
 //            ClientRegistry.bindTileEntityRenderer(entity.get(), InuSignTileEntityRenderer::new);
 
             Atlases.addWoodType(ModWoodTypes.INUWood);
+            Atlases.addWoodType(ModWoodTypes.INUWoodMan);
+            Atlases.addWoodType(ModWoodTypes.INUWoodWoman);
 
             loadSignData();
         });
