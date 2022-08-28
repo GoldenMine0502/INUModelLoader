@@ -7,20 +7,11 @@ import java.awt.Graphics2D
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
+import kotlin.streams.toList
 
-fun main(args: Array<String>) {
-    // woodType이 텍스쳐 종류임
-    val inputStream = File("src/main/resources/data/signtext.xlsx").inputStream()
-    SignSet.loadAll(inputStream)
-
-    // load all sign contents
-//    val sheetLocation = ResourceLocation(Inumodelloader.MOD_ID, "signs/signtext.xlsx")
-//    try {
-//        SignSet.loadAll(Minecraft.getInstance().resourceManager.getResource(sheetLocation).inputStream)
-//    } catch (e: IOException) {
-//        e.printStackTrace()
-//    }
-
+fun main() {
+    val list = File("src/main/resources/data/signtext.csv").bufferedReader().lines().toList()
+    SignSet.loadCsvAll(list)
 
     SignSet.getSignInfoMap().forEach { (signType, signInfo) ->
         val folder = File("src/main/resources/assets/inumodelloader")
@@ -38,7 +29,7 @@ fun main(args: Array<String>) {
         val modelString = """
             {
                 "textures": {
-                "particle": "inumodelloader:block/inu_wood_planks"
+                    "particle": "inumodelloader:block/inu_wood_planks"
                 }
             }
         """.trimIndent()
@@ -56,16 +47,19 @@ fun main(args: Array<String>) {
         val image = createItemImage(signType)
 
         val blockStateFile = File(folder, "blockstates/inu_sign_$signType.json")
+        val blockStateWallFile = File(folder, "blockstates/inu_wall_sign_$signType.json")
         val modelFile = File(folder, "models/block/inu_sign_$signType.json")
         val itemFile = File(folder, "models/item/inu_sign_$signType.json")
         val imageFile = File(folder, "textures/item/inu_sign_$signType.png")
 
-        if (blockStateFile.exists()) blockStateFile.createNewFile()
-        if (modelFile.exists()) modelFile.createNewFile()
-        if (itemFile.exists()) itemFile.createNewFile()
-        if (imageFile.exists()) imageFile.createNewFile()
+        if (!blockStateFile.exists()) blockStateFile.createNewFile()
+        if (!blockStateWallFile.exists()) blockStateWallFile.createNewFile()
+        if (!modelFile.exists()) modelFile.createNewFile()
+        if (!itemFile.exists()) itemFile.createNewFile()
+        if (!imageFile.exists()) imageFile.createNewFile()
 
         blockStateFile.writeText(blockStateString)
+        blockStateWallFile.writeText(blockStateString)
         modelFile.writeText(modelString)
         itemFile.writeText(itemString)
         ImageIO.write(image, "png", imageFile)

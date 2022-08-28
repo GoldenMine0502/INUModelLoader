@@ -16,6 +16,6 @@ public class AssetNetwork {
             version -> version.equals(NETWORK_VERSION));
 
     public static void init() {
-        CHANNEL.registerMessage(0, AssetFileMessage.class, AssetFileMessage::encode, AssetFileMessage::decode, AssetFileMessage::handle);
+//        CHANNEL.registerMessage(0, AssetFileMessage.class, AssetFileMessage::encode, AssetFileMessage::decode, AssetFileMessage::handle);
     }
 }

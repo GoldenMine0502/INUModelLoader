@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'kotlin'
 
 group = 'kr.goldenmine.inumodelloader'
-version = '1.2.4-SNAPSHOT'
+version = '1.2.5-SNAPSHOT'
 
 java {
     archivesBaseName = 'inumodelloader'
@@ -135,11 +135,13 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
 
     // https://mvnrepository.com/artifact/org.apache.poi/poi
 //    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.2'
-    implementation 'org.apache.poi:poi-ooxml:5.1.0'
+//    implementation 'org.apache.poi:poi-ooxml:5.1.0'
+// https://mvnrepository.com/artifact/com.opencsv/opencsv
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.6'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 

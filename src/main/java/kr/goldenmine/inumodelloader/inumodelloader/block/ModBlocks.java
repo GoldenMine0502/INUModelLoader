@@ -41,20 +41,20 @@ public class ModBlocks {
     public static final RegistryObject<Block> TALL_INU_DOOR_BLOCK = registerBlock("tall_inu_door_block",
             () -> new TallINUDoorBlock(Blocks.OAK_DOOR), ModItemGroup.INU_MODELS_TAB);
 
-//    public static final RegistryObject<Block> INU_WOOD_LOG = registerBlock("inu_wood_log",
-//            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_LOG)), ModItemGroup.TUTORIAL_TAB);
-//
-//    public static final RegistryObject<Block> INU_WOOD_WOOD = registerBlock("inu_wood_wood",
-//            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_WOOD)), ModItemGroup.TUTORIAL_TAB);
-//
-//    public static final RegistryObject<Block> STRIPPED_INU_WOOD_LOG = registerBlock("stripped_inu_wood_log",
-//            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.TUTORIAL_TAB);
-//
-//    public static final RegistryObject<Block> STRIPPED_INU_WOOD_WOOD = registerBlock("stripped_inu_wood_wood",
-//            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.TUTORIAL_TAB);
-//
-//    public static final RegistryObject<Block> INU_WOOD_PLANKS = registerBlock("inu_wood_planks",
-//            () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)), ModItemGroup.TUTORIAL_TAB);
+    public static final RegistryObject<Block> INU_WOOD_LOG = registerBlock("inu_wood_log",
+            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_LOG)), ModItemGroup.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> INU_WOOD_WOOD = registerBlock("inu_wood_wood",
+            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.OAK_WOOD)), ModItemGroup.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> STRIPPED_INU_WOOD_LOG = registerBlock("stripped_inu_wood_log",
+            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> STRIPPED_INU_WOOD_WOOD = registerBlock("stripped_inu_wood_wood",
+            () -> new RotatedPillarBlock(AbstractBlock.Properties.from(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> INU_WOOD_PLANKS = registerBlock("inu_wood_planks",
+            () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)), ModItemGroup.TUTORIAL_TAB);
 
 //    public static final RegistryObject<Block> INU_WOOD_SIGN = BLOCKS.register("inu_wood_sign",
 //            () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, ""));

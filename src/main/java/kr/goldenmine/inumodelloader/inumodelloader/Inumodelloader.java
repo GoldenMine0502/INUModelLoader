@@ -36,10 +36,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.ByteArrayInputStream;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
@@ -50,12 +47,12 @@ public class Inumodelloader {
 
     public static final String MOD_ID = "inumodelloader";
     public static final String MOD_NAME = "INUModelLoader";
-    public static final String VERSION = "1.0-SNAPSHOT";
+    public static final String VERSION = "1.2.5-SNAPSHOT";
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-//    @SidedProxy(clientSide="com.moh.ui.proxy.ClientProxy",serverSide="com.moh.ui.proxy.CommonProxy") public static CommonProxy proxy;
+    private String[] signs;
 
     public Inumodelloader() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -68,34 +65,10 @@ public class Inumodelloader {
 
         LOGGER.info("home path: " + System.getProperty("user.dir"));
 
-        // for server
-        File file = new File(System.getProperty("user.dir") + "/signs/signtext.csv");
-        LOGGER.info("exists: " + file.exists());
-
-        if (file.exists()) {
-            List<String> list = new ArrayList<>();
-            try (BufferedReader is = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
-                String s;
-                while ((s = is.readLine()) != null) {
-                    list.add(s);
-                    LOGGER.info(s);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            SignSet.loadAll(list);
-//                try(InputStream is = new FileInputStream(file)) {
-//                    SignSet.loadAll(is);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-        }
-
-        String[] signs = new String[]{
+        signs = new String[]{
                 "default",
-                "08-101", "08-102", "08-103", "08-104b", "08-105", "08-106", "08-107", "08-108", "08-109", "08-110",
-                "08-111", "08-115", "08-116", "08-117", "08-117b", "08-118",
+                "08-101", "08-102", "08-103", "08-104", "08-104b", "08-105", "08-106", "08-107", "08-108", "08-109",
+                "08-110", "08-111", "08-112", "08-113", "08-115", "08-116", "08-117", "08-117b", "08-118",
 
                 "08-201", "08-202", "08-203", "08-204", "08-204b",
                 "08-211", "08-212", "08-213", "08-216", "08-218", "08-219",
@@ -116,12 +89,12 @@ public class Inumodelloader {
                 "08-401", "08-402", "08-403", "08-404", "08-405", "08-406", "08-407", "08-408",
                 "08-411", "08-412", "08-413", "08-416", "08-417", "08-417b", "08-418", "08-419",
                 "08-420", "08-421", "08-423", "08-424", "08-425", "08-426", "08-429",
-                "08-431", "08-432", "08-433", "08-435b", "08-438b",
+                "08-431", "08-432", "08-433", "08-435", "08-435b", "08-438", "08-438b",
                 "08-443", "08-444",
                 "08-452", "08-453", "08-454", "08-455", "08-456", "08-457", "08-458", "08-459",
                 "08-460", "08-461", "08-462", "08-463", "08-464", "08-465", "08-466", "08-467", "08-468", "08-469",
                 "08-470", "08-471", "08-472", "08-473", "08-474", "08-475", "08-476", "08-477", "08-478", "08-479",
-                "08-480", "08-481", "08-481b", "08-482", "08-482b",
+                "08-480", "08-481", "08-481b", "08-482", "08-482b", "08-483", "08-483b",
 
                 "08-502", "08-503", "08-507", "08-508",
                 "08-516", "08-517", "08-518",
@@ -139,8 +112,11 @@ public class Inumodelloader {
             SignModelRegistry.registerSign(signs[i]);
         }
 
+        LOGGER.info("loaded " + signs.length + " sign models.");
+
         SignModelRegistry.register(eventBus);
 
+//        FMLJavaModLoadingContext.get().getModEventBus().
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -154,47 +130,28 @@ public class Inumodelloader {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-//    @SubscribeEvent
-//    public void serverStarting(FMLServerStartingEvent e) {
-//        // Creating managerProvider
-//        managerProvider.register();
-//    }
-
     public void commonSetup(final FMLCommonSetupEvent event) {
         AssetNetwork.init();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-
         MinecraftForge.EVENT_BUS.register(new ServerEvents());
 
         event.enqueueWork(() -> {
             WoodType.register(ModWoodTypes.INUWood);
         });
-
 //        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_BLOCK.get(), RenderType.glintTranslucent());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
-        // some example code to dispatch IMC to another mod
-        InterModComms.sendTo("inumodelloader", "helloworld", () -> {
-            LOGGER.info("Hello world from the MDK");
-            return "Hello world";
-        });
+
     }
 
     private void processIMC(final InterModProcessEvent event) {
-        // some example code to receive and process InterModComms from other mods
-        LOGGER.info("Got IMC {}", event.getIMCStream().
-                map(m -> m.getMessageSupplier().get()).
-                collect(Collectors.toList()));
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
         event.enqueueWork(() -> {
             RenderType cutoutMipped = RenderType.getCutoutMipped();
 
@@ -207,64 +164,32 @@ public class Inumodelloader {
 
             Atlases.addWoodType(ModWoodTypes.INUWood);
 
-            // load all sign contents
-//            ResourceLocation sheetLocation = new ResourceLocation(Inumodelloader.MOD_ID, "signs/signtext.xlsx");
-//            try {
-//                InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("data/signtext.xlsx");
-////                InputStream is = Minecraft.getInstance().getResourceManager().getResource(sheetLocation).getInputStream();
-//                SignSet.loadAll(is);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-
-            try {
-                System.out.println("reading excel resource");
-//                InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("data/signtext.xlsx");
-//                InputStream is = ClassLoader.getSystemResourceAsStream("/data/signtext.xlsx");
-                InputStream is = Inumodelloader.class.getClassLoader().getResourceAsStream("data/signtext.xlsx");
-//                InputStream is = Inumodelloader.class.getResourceAsStream("data/signtext.xlsx");
-//                InputStream is =
-//                byte[] bytes = IOUtils.toByteArray(input);
-//                byte[] bytes = Files.readAllBytes(Paths.get(this.getClass().getClassLoader().getResource("data/signtext.xlsx").toURI()));
-//                ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(bytes);
-
-                SignSet.loadAll(is);
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println("error loading excel file in Main class");
-            }
-
-//            try(BufferedReader is = new BufferedReader(new InputStreamReader(Minecraft.getInstance().getResourceManager().getResource(sheetLocation).getInputStream(), StandardCharsets.UTF_8))) {
-//            try (BufferedReader is = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Inumodelloader.class.getResourceAsStream("signs/signtext.csv"))))) {
-//                String s;
-//                while ((s = is.readLine()) != null) {
-//                    LOGGER.info(s + "\n");
-//                }
-////                SignSet.loadAll(is);
-//            } catch (Exception ex) {
-//                LOGGER.info(ex.toString());
-//                Arrays.stream(ex.getStackTrace()).forEach(it -> {
-//                    LOGGER.info(it.toString());
-//                });
-//            }
+            loadSignData();
         });
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-        // do something when the server starts
-        LOGGER.info("HELLO from server starting");
-    }
+    public void loadSignData() {
+        //        ResourceLocation sheetLocation = new ResourceLocation(Inumodelloader.MOD_ID, "data/signtext.csv");
+        try {
+            LOGGER.info("reading sheet data...");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResource("data/signtext.csv").openStream()));
+            List<String> list = reader.lines().collect(Collectors.toList());
+            reader.close();
 
-    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
-    // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
-            LOGGER.info("HELLO from Register Block");
+            SignSet.loadCsvAll(list);
+            LOGGER.info("loaded " + SignSet.getSignInfoMap().size() + " sign data.");
+
+            Set<String> remaining = new HashSet<>(SignSet.getSignInfoMap().keySet());
+            for(int i = 0; i < signs.length; i++) {
+                remaining.remove(signs[i]);
+            }
+
+            // 현재 c랑 d버전 표지판은 출력하지 않기로 하였음.
+            remaining.removeIf(it -> it.contains("c") || it.contains("d"));
+
+            LOGGER.info("not added (" + remaining.size() + ") : " + remaining.stream().sorted().collect(Collectors.toList()));
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 }
