@@ -176,9 +176,7 @@ public class Inumodelloader {
             LOGGER.info("loaded " + SignSet.getSignInfoMap().size() + " sign data.");
 
             Set<String> remaining = new HashSet<>(SignSet.getSignInfoMap().keySet());
-            for(int i = 0; i < signs.length; i++) {
-                remaining.remove(signs[i]);
-            }
+            SignModelRegistry.getRegisteredTypes().forEach(remaining::remove);
 
             // 현재 c랑 d버전 표지판은 출력하지 않기로 하였음.
             remaining.removeIf(it -> it.contains("c") || it.contains("d"));

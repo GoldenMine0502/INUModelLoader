@@ -158,6 +158,7 @@ public class InuSignTileEntityRenderer extends TileEntityRenderer<InuSignTileEnt
 
     public void renderDebugText(InuSignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
         FontRenderer fontrenderer = this.renderDispatcher.getFontRenderer();
+
         float textMatrixMultiplier = 0.010416667F;
         matrixStackIn.translate(0.0D, 0.33333334D, 0.046666667D);
         matrixStackIn.scale(textMatrixMultiplier, -textMatrixMultiplier, textMatrixMultiplier);

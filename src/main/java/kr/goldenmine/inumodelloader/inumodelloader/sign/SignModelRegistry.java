@@ -41,6 +41,8 @@ public class SignModelRegistry {
 
     private String type;
 
+    private static List<String> registeredTypes = new ArrayList<>();
+
     public SignModelRegistry(String type, WoodType texture) {
         this.type = type;
 
@@ -96,9 +98,14 @@ public class SignModelRegistry {
         return entity;
     }
 
+    public static List<String> getRegisteredTypes() {
+        return registeredTypes;
+    }
+
     public static synchronized void registerSign(String type, WoodType woodType) {
         SignModelRegistry registry = new SignModelRegistry(type, woodType);
 
+        registeredTypes.add(type);
         registryList.add(registry);
     }
 
