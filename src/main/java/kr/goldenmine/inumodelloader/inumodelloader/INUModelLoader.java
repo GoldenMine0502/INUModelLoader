@@ -8,53 +8,37 @@ import kr.goldenmine.inumodelloader.inumodelloader.network.AssetNetwork;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignModelRegistry;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
 import kr.goldenmine.inumodelloader.inumodelloader.tileentity.ModTileEntities;
-import kr.goldenmine.inumodelloader.inumodelloader.util.SignText;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.ByteArrayInputStream;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(Inumodelloader.MOD_ID)
-public class Inumodelloader {
+@Mod(INUModelLoader.MOD_ID)
+public class INUModelLoader {
 
     public static final String MOD_ID = "inumodelloader";
     public static final String MOD_NAME = "INUModelLoader";
-    public static final String VERSION = "1.2.5-SNAPSHOT";
+    public static final String VERSION = "1.2.7-SNAPSHOT";
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     private String[] signs;
 
-    public Inumodelloader() {
+    public INUModelLoader() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         eventBus.addListener(this::commonSetup);
@@ -134,11 +118,12 @@ public class Inumodelloader {
     }
 
     public void commonSetup(final FMLCommonSetupEvent event) {
-        AssetNetwork.init();
+//        AssetNetwork.init();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-//        MinecraftForge.EVENT_BUS.register(new ServerEvents());
+        MinecraftForge.EVENT_BUS.register(new ServerEvents());
+
         event.enqueueWork(() -> {
             WoodType.register(ModWoodTypes.INUWood);
         });

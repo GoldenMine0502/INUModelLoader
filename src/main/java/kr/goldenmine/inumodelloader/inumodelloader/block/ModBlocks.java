@@ -1,8 +1,6 @@
 package kr.goldenmine.inumodelloader.inumodelloader.block;
 
-import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader;
-import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuStandingSignBlock;
-import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuWallSignBlock;
+import kr.goldenmine.inumodelloader.inumodelloader.INUModelLoader;
 import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.TallINUDoorBlock;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItemGroup;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
@@ -23,7 +21,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(ForgeRegistries.BLOCKS, Inumodelloader.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.BLOCKS, INUModelLoader.MOD_ID);
 
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
             () -> new Block(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(15f)), ModItemGroup.TUTORIAL_TAB);

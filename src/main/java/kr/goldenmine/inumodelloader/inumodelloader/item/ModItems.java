@@ -1,9 +1,7 @@
 package kr.goldenmine.inumodelloader.inumodelloader.item;
 
-import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader;
-import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
+import kr.goldenmine.inumodelloader.inumodelloader.INUModelLoader;
 import net.minecraft.item.Item;
-import net.minecraft.item.SignItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -11,7 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, Inumodelloader.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, INUModelLoader.MOD_ID);
 
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot",
             () -> new Item(new Item.Properties().group(ModItemGroup.TUTORIAL_TAB)));

@@ -1,7 +1,6 @@
 package kr.goldenmine.inumodelloader.inumodelloader.network;
 
-import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader;
-import kr.goldenmine.inumodelloader.inumodelloader.network.messages.AssetFileMessage;
+import kr.goldenmine.inumodelloader.inumodelloader.INUModelLoader;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
@@ -10,7 +9,7 @@ public class AssetNetwork {
     public static final String NETWORK_VERSION = "0.1.1";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-            new ResourceLocation(Inumodelloader.MOD_ID, "assetnetwork"),
+            new ResourceLocation(INUModelLoader.MOD_ID, "assetnetwork"),
             () -> NETWORK_VERSION,
             version -> version.equals(NETWORK_VERSION),
             version -> version.equals(NETWORK_VERSION));

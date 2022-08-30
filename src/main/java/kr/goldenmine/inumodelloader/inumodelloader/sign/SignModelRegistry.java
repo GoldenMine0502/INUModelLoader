@@ -1,7 +1,6 @@
 package kr.goldenmine.inumodelloader.inumodelloader.sign;
 
-import kr.goldenmine.inumodelloader.inumodelloader.Inumodelloader;
-import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
+import kr.goldenmine.inumodelloader.inumodelloader.INUModelLoader;
 import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuStandingSignBlock;
 import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuWallSignBlock;
 import kr.goldenmine.inumodelloader.inumodelloader.item.InuSignItem;
@@ -28,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SignModelRegistry {
-    public static DeferredRegister<Block> SIGN_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Inumodelloader.MOD_ID);
-    public static DeferredRegister<Item> SIGN_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Inumodelloader.MOD_ID);
-    public static DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Inumodelloader.MOD_ID);
+    public static DeferredRegister<Block> SIGN_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, INUModelLoader.MOD_ID);
+    public static DeferredRegister<Item> SIGN_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, INUModelLoader.MOD_ID);
+    public static DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, INUModelLoader.MOD_ID);
 
     private static List<SignModelRegistry> registryList = new ArrayList<SignModelRegistry>();
 
