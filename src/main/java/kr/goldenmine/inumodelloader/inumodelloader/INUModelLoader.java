@@ -36,20 +36,48 @@ public class INUModelLoader {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private String[] signs;
-
     public INUModelLoader() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        eventBus.addListener(this::commonSetup);
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
         ModTileEntities.register(eventBus);
+        addAllSignItems(eventBus);
 
         LOGGER.info("home path: " + System.getProperty("user.dir"));
 
-        signs = new String[]{
+        // Register the setup method for modloading
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        // Register the doClientStuff method for modloading
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    private void setup(final FMLCommonSetupEvent event) {
+        MinecraftForge.EVENT_BUS.register(new ServerEvents());
+    }
+
+    private void doClientStuff(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            RenderType cutoutMipped = RenderType.getCutoutMipped();
+
+            RenderTypeLookup.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.TEST_OBJ_BLOCK.get(), cutoutMipped);
+
+            SignModelRegistry.bindAllRenderers();
+
+            Atlases.addWoodType(ModWoodTypes.INUWood);
+            Atlases.addWoodType(ModWoodTypes.INUWoodMan);
+            Atlases.addWoodType(ModWoodTypes.INUWoodWoman);
+
+            loadSignData();
+        });
+    }
+
+    public void addAllSignItems(IEventBus eventBus) {
+        String[] signs = new String[] {
                 "default",
                 "08-101", "08-102", "08-103", "08-104", "08-104b", "08-105", "08-106", "08-107", "08-108", "08-109",
                 "08-110", "08-111", "08-112", "08-113", "08-115", "08-116", "08-117", "08-117b", "08-118",
@@ -103,50 +131,9 @@ public class INUModelLoader {
         SignModelRegistry.registerSign("stair0", ModWoodTypes.INUWood);
         SignModelRegistry.registerSign("stair1", ModWoodTypes.INUWood);
 
-        LOGGER.info("loaded " + signs.length + " sign models.");
+        LOGGER.info("loaded " + SignModelRegistry.getRegisteredTypes().size() + " sign models.");
 
         SignModelRegistry.register(eventBus);
-
-//        FMLJavaModLoadingContext.get().getModEventBus().
-        // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    public void commonSetup(final FMLCommonSetupEvent event) {
-//        AssetNetwork.init();
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-        MinecraftForge.EVENT_BUS.register(new ServerEvents());
-
-        event.enqueueWork(() -> {
-            WoodType.register(ModWoodTypes.INUWood);
-        });
-//        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TREE_BLOCK.get(), RenderType.glintTranslucent());
-    }
-
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            RenderType cutoutMipped = RenderType.getCutoutMipped();
-
-            RenderTypeLookup.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutoutMipped);
-            RenderTypeLookup.setRenderLayer(ModBlocks.TEST_OBJ_BLOCK.get(), cutoutMipped);
-
-            SignModelRegistry.bindAllRenderers();
-//            ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), InuSignTileEntityRenderer::new);
-//            ClientRegistry.bindTileEntityRenderer(entity.get(), InuSignTileEntityRenderer::new);
-
-            Atlases.addWoodType(ModWoodTypes.INUWood);
-            Atlases.addWoodType(ModWoodTypes.INUWoodMan);
-            Atlases.addWoodType(ModWoodTypes.INUWoodWoman);
-
-            loadSignData();
-        });
     }
 
     public void loadSignData() {
@@ -166,7 +153,12 @@ public class INUModelLoader {
             // 현재 c랑 d버전 표지판은 출력하지 않기로 하였음.
             remaining.removeIf(it -> it.contains("c") || it.contains("d"));
 
-            LOGGER.info("not added (" + remaining.size() + ") : " + remaining.stream().sorted().collect(Collectors.toList()));
+            String log = "not added (" + remaining.size() + ") : " + remaining.stream().sorted().collect(Collectors.toList());
+            if(remaining.size() == 0) {
+                LOGGER.info(log);
+            } else {
+                LOGGER.warn(log);
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
