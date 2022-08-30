@@ -4,11 +4,9 @@ import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
 import kr.goldenmine.inumodelloader.inumodelloader.events.ServerEvents;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
-import kr.goldenmine.inumodelloader.inumodelloader.network.AssetNetwork;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignModelRegistry;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
-import kr.goldenmine.inumodelloader.inumodelloader.tileentity.ModTileEntities;
-import net.minecraft.block.WoodType;
+import kr.goldenmine.inumodelloader.inumodelloader.entity.ModTileEntities;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -31,7 +29,7 @@ public class INUModelLoader {
 
     public static final String MOD_ID = "inumodelloader";
     public static final String MOD_NAME = "INUModelLoader";
-    public static final String VERSION = "1.2.7-SNAPSHOT";
+    public static final String VERSION = "1.2.8-SNAPSHOT";
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();

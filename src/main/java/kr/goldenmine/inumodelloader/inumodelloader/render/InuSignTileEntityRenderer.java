@@ -1,7 +1,8 @@
-package kr.goldenmine.inumodelloader.inumodelloader.tileentity;
+package kr.goldenmine.inumodelloader.inumodelloader.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import kr.goldenmine.inumodelloader.inumodelloader.entity.InuSignTileEntity;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
 import kr.goldenmine.inumodelloader.inumodelloader.util.Align;
 import kr.goldenmine.inumodelloader.inumodelloader.util.SignInfo;

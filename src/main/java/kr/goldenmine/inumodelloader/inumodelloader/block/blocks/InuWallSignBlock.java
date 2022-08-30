@@ -1,18 +1,14 @@
 package kr.goldenmine.inumodelloader.inumodelloader.block.blocks;
 
-//import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntity;
-import kr.goldenmine.inumodelloader.inumodelloader.properties.BlockStateProperties;
-import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntity;
+//import kr.goldenmine.inumodelloader.inumodelloader.entity.InuSignTileEntity;
+import kr.goldenmine.inumodelloader.inumodelloader.entity.InuSignTileEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.WallSignBlock;
 import net.minecraft.block.WoodType;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.EnumProperty;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
 
 // https://github.com/Myrathi/FlatSignsEx
 public class InuWallSignBlock extends WallSignBlock {

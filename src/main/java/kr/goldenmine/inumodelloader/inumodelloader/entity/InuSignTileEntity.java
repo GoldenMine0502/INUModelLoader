@@ -1,4 +1,4 @@
-package kr.goldenmine.inumodelloader.inumodelloader.tileentity;
+package kr.goldenmine.inumodelloader.inumodelloader.entity;
 
 import net.minecraft.tileentity.SignTileEntity;
 import net.minecraft.tileentity.TileEntityType;

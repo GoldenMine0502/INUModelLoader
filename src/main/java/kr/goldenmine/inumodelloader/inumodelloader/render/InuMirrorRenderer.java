@@ -1,4 +1,4 @@
-package kr.goldenmine.inumodelloader.inumodelloader.tileentity;
+package kr.goldenmine.inumodelloader.inumodelloader.render;
 
 //public class InuMirrorRenderer extends InuSignTileEntityRenderer{
 //    @Override

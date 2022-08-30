@@ -1,4 +1,4 @@
-package kr.goldenmine.inumodelloader.inumodelloader.tileentity;
+package kr.goldenmine.inumodelloader.inumodelloader.entity;
 
 import kr.goldenmine.inumodelloader.inumodelloader.INUModelLoader;
 import net.minecraft.tileentity.TileEntityType;

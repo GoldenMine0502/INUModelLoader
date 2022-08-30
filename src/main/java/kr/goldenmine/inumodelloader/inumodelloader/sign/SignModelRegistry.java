@@ -5,8 +5,8 @@ import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuStandingSignB
 import kr.goldenmine.inumodelloader.inumodelloader.block.blocks.InuWallSignBlock;
 import kr.goldenmine.inumodelloader.inumodelloader.item.InuSignItem;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItemGroup;
-import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntity;
-import kr.goldenmine.inumodelloader.inumodelloader.tileentity.InuSignTileEntityRenderer;
+import kr.goldenmine.inumodelloader.inumodelloader.entity.InuSignTileEntity;
+import kr.goldenmine.inumodelloader.inumodelloader.render.InuSignTileEntityRenderer;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
