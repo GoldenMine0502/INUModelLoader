@@ -1,9 +1,5 @@
 package kr.goldenmine.inumodelloader.inumodelloader.sign;
 
-import com.opencsv.CSVParser;
-import com.opencsv.CSVReader;
-import com.opencsv.bean.CsvRecurse;
-import com.opencsv.exceptions.CsvException;
 import kr.goldenmine.inumodelloader.inumodelloader.util.Align;
 import kr.goldenmine.inumodelloader.inumodelloader.util.Point;
 import kr.goldenmine.inumodelloader.inumodelloader.util.SignInfo;
@@ -11,7 +7,6 @@ import kr.goldenmine.inumodelloader.inumodelloader.util.SignText;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.util.*;
 
 public class SignSet {
@@ -21,17 +16,9 @@ public class SignSet {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public static void loadCsvAll(List<String> lines) {
-        CSVParser parser = new CSVParser();
-
         List<String> logs = new ArrayList<>();
 
-        lines.stream().skip(8).map(it -> {
-            try {
-                return parser.parseLine(it);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }).forEach(line -> {
+        lines.stream().skip(8).map(it -> it.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)")).forEach(line -> {
             try {
                 String signType = line[1];
                 if(signType.length() > 0) {

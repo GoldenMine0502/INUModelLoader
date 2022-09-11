@@ -1,0 +1,311 @@
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"왼쪽 끝 좌표: (0, 0), 중간 좌표: (96, 24), 끝 좌표(192, 48)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"정렬 텍스트: LEFT, CENTER, RIGHT, L, C, R 각각 왼쪽정렬, 가운데정렬, 오른쪽정렬",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"좌표 0~192, 0~48 범위를 벗어나더라도 렌더링이 가능합니다. 왼쪽 번호를 비우면 텍스트 다 적혀있어도 추가 안되게 가능합니다. ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"a붙이면 입체(a생략), b붙이면 벽면, c붙이면 한자들어간 교수님, d는 오른쪽에 표시되는 표지판(을 형식적으로 의미함, 결국 좌표 적는 사용자에게 달림)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,부족하면 더 적어도 작동합니다,,,,,
+,영어는 소문자만 가능,,,,,,일반적으로 호실을 적습니다,,,,,,일반적으로 한글 이름을 적습니다,,,,,,일반적으로 영문 이름을 적습니다,,,,,,일반적으로 한글 이름을 적습니다,,,,,,일반적으로 영문 이름을 적습니다,,,,,
+,번호,전체배율,translatex,translatey,텍스쳐,좌표갯수,x1,y1,텍스트1,배율,색,정렬1,x2,y2,텍스트2,배율,색,정렬2,x3,y3,텍스트3,배율,색,정렬3,x4,y4,텍스트4,배율,색,정렬4,x5,y5,텍스트5,배율,색,정렬5
+,default,0.5,0,0,default,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,manb,0.5,0,0,man,3,,,,,,,140,10,남자화장실,1.75,#FFFFFF,RIGHT,140,29,Restroom for Men,0.75,#AAAAAA,RIGHT,,,,,,,,,,,,
+,womanb,0.5,0,0,woman,3,,,,,,,140,10,여자화장실,1.75,#FFFFFF,RIGHT,140,29,Restroom for Women,0.75,#AAAAAA,RIGHT,,,,,,,,,,,,
+,ps,0.25,0,0,default,1,96,17,PS실,2,#FFFFFF,CENTER,,,,,,,,,,,,,,,,,,,,,,,,
+,ad,0.25,0,0,default,1,96,17,AD실,2,#FFFFFF,CENTER,,,,,,,,,,,,,,,,,,,,,,,,
+,stair0,0.5,0,0,default,3,,,,,,,180,10,계단실,1.75,#FFFFFF,RIGHT,180,29,Staircase,0.75,#808080,RIGHT,,,,,,,,,,,,
+,stair1,0.5,0,-0.3,default,3,,,,,,,180,10,계단실,1.75,#FFFFFF,RIGHT,180,29,Staircase,0.75,#808080,RIGHT,,,,,,,,,,,,
+,08-101,0.5,0,0,default,3,184,30,08-101,1,#0000FF,RIGHT,10,10,기계제도실,1.75,#FFFFFF,LEFT,10,29,Mechanical Drawing Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-102,0.5,0,0,default,3,184,30,08-102,1,#0000FF,RIGHT,10,10,재료실험실,1.75,#FFFFFF,LEFT,10,29,Material Testing Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-103,0.5,0,0,default,3,184,30,08-103,1,#0000FF,RIGHT,10,10,기자재실,1.75,#FFFFFF,LEFT,10,29,Machine Parts Supply Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-104,0.5,0,0,default,3,184,30,08-104,1,#0000FF,RIGHT,10,10,기계공학과학생회실,1.75,#FFFFFF,LEFT,10,29,Students Association · Dept of Mechanical Engineering,0.45,#808080,LEFT,,,,,,,,,,,,
+,08-104b,0.5,0,-0.5,default,3,148,15,08-104,1,#0000FF,LEFT,140,10,기계공학과학생회실,1.75,#FFFFFF,RIGHT,140,29,Students Association · Dept of Mechanical Engineering,0.45,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-105,0.5,0,0,default,3,184,30,08-105,1,#0000FF,RIGHT,10,10,멀티스케일 유동제어 연구실-1,1.4,#FFFFFF,LEFT,10,29,Multi-Scale Flow Control Lab. - 1,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-106,0.5,0,0,default,3,184,30,08-106,1,#0000FF,RIGHT,10,10,신재생에너지연구실-2,1.75,#FFFFFF,LEFT,10,29,Renewable Energy Laboratory - 2,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-107,0.5,0,0,default,3,184,30,08-107,1,#0000FF,RIGHT,10,10,창  고,1.75,#FFFFFF,LEFT,10,29,Storage,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-108,0.5,0,0,default,3,184,30,08-108,1,#0000FF,RIGHT,10,10,탕 비 실,1.75,#FFFFFF,LEFT,10,29,Office Pantry,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-109,0.5,0,0,default,3,184,30,08-109,1,#0000FF,RIGHT,10,10,로봇 · 제어 · 사이버네틱스 연구실,1.2,#FFFFFF,LEFT,10,29,"Robotics, Control and Cybernetics Lab.",0.65,#808080,LEFT,,,,,,,,,,,,
+,08-110,0.5,0,0,default,3,184,30,08-110,1,#0000FF,RIGHT,10,10,로봇 제어 실험실,1.75,#FFFFFF,LEFT,10,29,Robot Control Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-111,0.5,0,0,default,3,184,30,08-111,1,#0000FF,RIGHT,10,10,반도체에너지전달연구실,1.75,#FFFFFF,LEFT,10,29,Semiconductor Energy Transfer Lab.,0.65,#808080,LEFT,,,,,,,,,,,,
+,08-112,0.5,0,0,default,3,184,30,08-112,1,#0000FF,RIGHT,10,10,세미나실,1.75,#FFFFFF,LEFT,10,29,Seminar Room,0.65,#808080,LEFT,,,,,,,,,,,,
+,08-113,0.5,0,0,default,3,148,15,08-113,1,#0000FF,LEFT,140,10,전기공학과학생회실,1.75,#FFFFFF,RIGHT,140,29,Students Association · Dept of Electrical Engineering,0.45,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-115,0.5,0,0,default,3,184,30,08-115,1,#0000FF,RIGHT,10,10,창  고,1.75,#FFFFFF,LEFT,10,29,Storage,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-116,0.5,0,0,default,3,184,30,08-116,1,#0000FF,RIGHT,10,10,탕 비 실,1.75,#FFFFFF,LEFT,10,29,Office Pantry,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-117b,0.5,0,-0.5,default,3,146,12,08-117,1,#0000FF,LEFT,138,10,세미나실,1.75,#FFFFFF,RIGHT,138,29,Seminar Room,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-117,0.5,0,0,default,3,184,30,08-117,1,#0000FF,RIGHT,10,10,세미나실,1.75,#FFFFFF,LEFT,10,29,Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,17,12,08-117,1,#0000FF,LEFT,52,10,세미나실,1.75,#FFFFFF,LEFT,52,29,Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-118,0.5,0,0,default,3,184,30,08-118,1,#0000FF,RIGHT,10,10,미화원실,1.75,#FFFFFF,LEFT,10,29,Sanitation Workers Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-201,0.5,0,0,default,3,184,30,08-201,1,#0000FF,RIGHT,10,10,신소재 기초실험실,1.75,#FFFFFF,LEFT,10,29,Advanced Materials Basic Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-202,0.5,0,0,default,3,184,30,08-202,1,#0000FF,RIGHT,10,10,분석준비실,1.75,#FFFFFF,LEFT,10,29,Materials Analysis Preparation Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-203,0.5,0,0,default,3,184,30,08-203,1,#0000FF,RIGHT,10,10,실험준비실,1.75,#FFFFFF,LEFT,10,29,Lab Preparation Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-204,0.5,0,0,default,3,184,30,08-204,1,#0000FF,RIGHT,10,10,기계공학과사무실,1.75,#FFFFFF,LEFT,10,29,Dept. of Mechanical Engineering,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-204b,0.5,0,-0.5,default,3,148,15,08-204,1,#0000FF,LEFT,140,10,기계공학과사무실,1.75,#FFFFFF,RIGHT,140,29,Dept. of Mechanical Engineering,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-211,0.5,0,0,default,3,184,30,08-211,1,#0000FF,RIGHT,10,10,기초전기실험실,1.75,#FFFFFF,LEFT,10,29,Basic Electric Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-212,0.5,0,0,default,3,184,30,08-212,1,#0000FF,RIGHT,10,10,전기기계실험실,1.75,#FFFFFF,LEFT,10,29,Electric Machinary Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-213,0.5,0,0,default,3,184,30,08-213,1,#0000FF,RIGHT,10,10,디지털실험실,1.75,#FFFFFF,LEFT,10,29,Digital Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-216,0.5,0,0,default,3,184,30,08-216,1,#0000FF,RIGHT,10,10,전기공학과사무실,1.75,#FFFFFF,LEFT,10,29,Dept. of Electrial Engineering,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-218,0.5,0,0,default,3,184,30,08-218,1,#0000FF,RIGHT,10,10,전자기수치해석연구실,1.75,#FFFFFF,LEFT,10,29,Computational Electromagnetics Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-219,0.5,0,0,default,3,184,30,08-219,1,#0000FF,RIGHT,10,10,전력전자실험실,1.75,#FFFFFF,LEFT,10,29,Power Electronics Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-223,0.5,0,0,default,3,184,30,08-223,1,#0000FF,RIGHT,10,10,스마트시스템 실습실,1.75,#FFFFFF,LEFT,10,29,Smart System Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-224,0.5,0,0,default,3,184,30,08-224,1,#0000FF,RIGHT,10,10,전기설계실험실,1.75,#FFFFFF,LEFT,10,29,Electric Design Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-225,0.5,0,0,default,3,184,30,08-225,1,#0000FF,RIGHT,10,10,분리막 연구실,1.75,#FFFFFF,LEFT,10,29,Membrane Research Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-226,0.5,0,0,default,3,184,30,08-226,1,#0000FF,RIGHT,10,10,산경 대학원 세미나실,1.75,#FFFFFF,LEFT,10,29,IME Graduate Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-228,0.5,0,0,default,3,184,30,08-228,1,#0000FF,RIGHT,10,10,원자력안전연구실,1.75,#FFFFFF,LEFT,10,29,Nuclear Safety Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-249,0.5,0,0,default,3,184,30,08-249,1,#0000FF,RIGHT,10,10,전력 및 에너지시스템 연구실,1.75,#FFFFFF,LEFT,10,29,Electric Power & Energy System Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-250,0.5,0,0,default,3,184,30,08-250,1,#0000FF,RIGHT,10,10,전기공해환경 환경실험실,1.75,#FFFFFF,LEFT,10,29,Electric Pollution Environmental Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-269,0.5,0,0,default,3,184,30,08-269,1,#0000FF,RIGHT,10,10,신소재분석실험실,1.75,#FFFFFF,LEFT,10,29,Advanced Materials Analysis Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-270,0.5,0,0,default,3,184,30,08-270,1,#0000FF,RIGHT,10,10,신소재기기공작실,1.75,#FFFFFF,LEFT,10,29,Advanced Materials Machining Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-301,0.5,0,0,default,3,184,30,08-301,1,#0000FF,RIGHT,10,10,전략소재 및 재자원화 실험실,1.75,#FFFFFF,LEFT,10,29,Lab. of Strategy Materials and Recycle,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-302,0.5,0,0,default,3,184,30,08-302,1,#0000FF,RIGHT,10,10,박막전자재료실험실,1.75,#FFFFFF,LEFT,10,29,Thin film Electronic Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-303,0.5,0,0,default,3,184,30,08-303,1,#0000FF,RIGHT,10,10,에너지소재실험실,1.75,#FFFFFF,LEFT,10,29,Energy Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-304,0.5,0,0,default,3,184,30,08-304,1,#0000FF,RIGHT,10,10,정밀기자재실,1.75,#FFFFFF,LEFT,10,29,Precision Gauge Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-305,0.5,0,0,default,3,146,15,08-305,1,#0000FF,LEFT,138,10,신소재공학과사무실,1.75,#FFFFFF,RIGHT,138,29,Dept. of Materials Science and Engineering,0.6,#808080,RIGHT,,,,,,,,,,,,
+,08-306,0.5,0,0,default,3,184,30,08-306,1,#0000FF,RIGHT,10,10,세미나실,1.75,#FFFFFF,LEFT,10,29,Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-307,0.5,0,0,default,3,184,30,08-307,1,#0000FF,RIGHT,10,10,후막적층재료실험실,1.75,#FFFFFF,LEFT,10,29,Thick film Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-308,0.5,0,0,default,3,184,30,08-308,1,#0000FF,RIGHT,10,10,광전재료실험실,1.75,#FFFFFF,LEFT,10,29,Optoelectronic Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-309,0.5,0,0,default,3,184,30,08-309,1,#0000FF,RIGHT,10,10,전략소재및재자원화연구실,1.75,#FFFFFF,LEFT,10,29,Lab. of Strategy Materials and Recycle,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-310d,0.5,0,0,default,5,17,2,08-310,0.85,#FFFFFF,LEFT,104,10,안전공학과 교수,0.35,#808080,LEFT,104,16,Dept of Safety Engineering Professor,0.35,#808080,LEFT,104,22,김태훈,1.5,#FFFFFF,LEFT,142,27,Taehoon Kim,0.75,#808080,LEFT
+,08-310,0.5,0,0,default,5,175,2,08-310,0.85,#FFFFFF,RIGHT,12,10,안전공학과 교수,0.35,#808080,LEFT,12,16,Dept of Safety Engineering Professor,0.35,#808080,LEFT,12,22,김 태 훈,1.5,#FFFFFF,LEFT,64,27,Taehoon Kim,0.75,#808080,LEFT
+,08-311,0.5,0,0,default,3,184,30,08-311,1,#0000FF,RIGHT,10,10,복합재료실험실,1.75,#FFFFFF,LEFT,10,29,Composite Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-312,0.5,0,0,default,3,184,30,08-312,1,#0000FF,RIGHT,10,10,에너지소재연구실,1.75,#FFFFFF,LEFT,10,29,Energy Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-313,0.5,0,0,default,3,184,30,08-313,1,#0000FF,RIGHT,10,10,SDT연구실험실,1.75,#FFFFFF,LEFT,10,29,SDT Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-314,0.5,0,0,default,3,184,30,08-314,1,#0000FF,RIGHT,10,10,탕비실,1.75,#FFFFFF,LEFT,10,29,Office Pantry,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-315,0.5,0,0,default,3,146,15,08-315,1,#0000FF,LEFT,138,10,전자공학과사무실,1.75,#FFFFFF,RIGHT,138,29,Dept. of Electronics Engineering,0.75,#808080,RIGHT,,,,,,,,,,,,
+,08-316,0.5,0,0,default,3,184,30,08-316,1,#0000FF,RIGHT,10,10,기초전자회로사무실,1.75,#FFFFFF,LEFT,10,29,Basic Electronic Circuit Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-317,0.5,0,0,default,3,184,30,08-317,1,#0000FF,RIGHT,10,10,전자회로실험실,1.75,#FFFFFF,LEFT,10,29,Electronic Circuit Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-318,0.5,0,0,default,3,184,30,08-318,1,#0000FF,RIGHT,10,10,멀티미디어실험실,1.75,#FFFFFF,LEFT,10,29,Multimedia Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-319,0.5,0,0,default,3,184,30,08-319,1,#0000FF,RIGHT,10,10,탈의실(남),1.75,#FFFFFF,LEFT,10,29,Locker (M),0.75,#808080,LEFT,,,,,,,,,,,,
+,08-321b,0.5,0,-0.5,default,3,146,12,08-321,1,#0000FF,LEFT,138,10,강 의 실,1.75,#FFFFFF,RIGHT,138,29,Lecture Room,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-321,0.5,0,0,default,3,184,30,08-321,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-322b,0.5,0,-0.5,default,3,146,12,08-322,1,#0000FF,LEFT,138,10,강 의 실,1.75,#FFFFFF,RIGHT,138,29,Lecture Room,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-322,0.5,0,0,default,3,184,30,08-322,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-323,0.5,0,0,default,3,184,30,08-323,1,#0000FF,RIGHT,10,10,전자공학과학생회실,1.75,#FFFFFF,LEFT,10,29,Students Association · Dept. of Electronics Engineering,0.45,#808080,LEFT,,,,,,,,,,,,
+,08-323b,0.5,0,-0.5,default,3,148,15,08-323,1,#0000FF,LEFT,140,10,전자공학과학생회실,1.75,#FFFFFF,RIGHT,140,29,Students Association · Dept. of Electronics Engineering,0.45,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-324,0.5,0,0,default,3,184,30,08-324,1,#0000FF,RIGHT,10,10,실험준비실,1.75,#FFFFFF,LEFT,10,29,Lab Preparation Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-325,0.5,0,0,default,3,184,30,08-325,1,#0000FF,RIGHT,10,10,디지털회로실험실,1.75,#FFFFFF,LEFT,10,29,Digital Circuit Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-326,0.5,0,0,default,3,184,30,08-326,1,#0000FF,RIGHT,10,10,컴퓨터실험실,1.75,#FFFFFF,LEFT,10,29,Computer Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-327,0.5,0,0,default,3,184,30,08-327,1,#0000FF,RIGHT,10,10,교강사교재 연구실,1.75,#FFFFFF,LEFT,10,29,Lecture Perparation Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-328,0.5,0,0,default,3,184,30,08-328,1,#0000FF,RIGHT,10,10,세미나실,1.75,#FFFFFF,LEFT,10,29,Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-330,0.5,0,0,default,3,184,30,08-330,1,#0000FF,RIGHT,10,10,부호이론및통신방식연구실험실,1.3,#FFFFFF,LEFT,10,29,Coding Theory & Communication Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-333,0.5,0,0,default,3,184,30,08-333,1,#0000FF,RIGHT,10,10,세미나실,1.75,#FFFFFF,LEFT,10,29,Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-334,0.5,0,0,default,3,184,30,08-334,1,#0000FF,RIGHT,10,10,안전공학과사무실,1.75,#FFFFFF,LEFT,10,29,Dept. of Safety Engineering,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-334b,0.5,0,-0.5,default,3,148,15,08-334,1,#0000FF,LEFT,140,10,안전공학과사무실,1.75,#FFFFFF,RIGHT,140,29,Dept. of Safety Engineering,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-335,0.5,0,0,default,3,184,30,08-335,1,#0000FF,RIGHT,10,10,안전공학멀티미디어실,1.75,#FFFFFF,LEFT,10,29,Safety Engineering Multimedia Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-338,0.5,0,0,default,3,184,30,08-338,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-339,0.5,0,0,default,3,184,30,08-339,1,#0000FF,RIGHT,10,10,안전공학과학생회실,1.75,#FFFFFF,LEFT,10,29,Students Association · Dept. of Safety Engineering,0.45,#808080,LEFT,,,,,,,,,,,,
+,08-339b,0.5,0,-0.5,default,3,148,15,08-339,1,#0000FF,LEFT,140,10,안전공학과학생회실,1.75,#FFFFFF,RIGHT,140,29,Students Association · Dept. of Safety Engineering,0.45,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-340,0.5,0,0,default,3,184,30,08-340,1,#0000FF,RIGHT,10,10,열유체가시화실험실,1.75,#FFFFFF,LEFT,10,29,Heat & Fluid Visualization Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,default,3,184,30,,1,#0000FF,RIGHT,10,10,,1.75,#FFFFFF,LEFT,10,29,,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-344,0.5,0,0,default,5,175,2,08-344,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,박 재 삼,1.5,#FFFFFF,LEFT,64,27,Park Jae-Sam,0.75,#808080,LEFT
+,08-345,0.5,0,0,default,5,175,2,08-345,0.85,#FFFFFF,RIGHT,12,10,안전공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Safety Engineering Professor,0.35,#808080,LEFT,12,22,송 창 근,1.5,#FFFFFF,LEFT,64,27,Chang-Geun Song,0.75,#808080,LEFT
+,08-346,0.5,0,0,default,5,175,2,08-346,0.85,#FFFFFF,RIGHT,12,10,안전공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Safety Engineering Professor,0.35,#808080,LEFT,12,22,김 태 완,1.5,#FFFFFF,LEFT,64,27,Taewan Kim,0.75,#808080,LEFT
+,08-347,0.5,0,0,default,3,184,30,08-347,1,#0000FF,RIGHT,10,10,재난안전 및 수자원관리 연구실,1.3,#FFFFFF,LEFT,10,29,Water Resource and Safety Management Lab.,0.55,#808080,LEFT,,,,,,,,,,,,
+,08-348,0.5,0,0,default,3,184,30,08-348,1,#0000FF,RIGHT,10,10,연소 및 화재안전실험실,1.75,#FFFFFF,LEFT,10,29,Combustion and Fire Safety Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-349,0.5,0,0,default,3,184,30,08-349,1,#0000FF,RIGHT,10,10,인간공학연구실,1.75,#FFFFFF,LEFT,10,29,Human Factors and Ergonomics Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-350,0.5,0,0,default,3,184,30,08-350,1,#0000FF,RIGHT,10,10,구조안전실험실,1.75,#FFFFFF,LEFT,10,29,Structure Safety Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-351,0.5,0,0,default,5,175,2,08-351,0.85,#FFFFFF,RIGHT,12,10,안전공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Safety Engineering Professor,0.35,#808080,LEFT,12,22,이 동 호,1.5,#FFFFFF,LEFT,64,27,Dong-Ho Rie,0.75,#808080,LEFT
+,08-352,0.5,0,0,default,5,175,2,08-352,0.85,#FFFFFF,RIGHT,12,10,안전공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Safety Engineering Professor,0.35,#808080,LEFT,12,22,오 태 근,1.5,#FFFFFF,LEFT,64,27,Tae-Keun Oh,0.75,#808080,LEFT
+,08-353,0.5,0,0,default,5,175,2,08-353,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,나 태 희,1.5,#FFFFFF,LEFT,64,27,TAEHUI NA,0.75,#808080,LEFT
+,08-354,0.5,0,0,default,5,175,2,08-354,0.85,#FFFFFF,RIGHT,12,10,안전공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Safety Engineering Professor,0.35,#808080,LEFT,12,22,이 민 철,1.5,#FFFFFF,LEFT,64,27,Min-Chul Lee,0.75,#808080,LEFT
+,08-355,0.5,0,0,default,5,175,2,08-355,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,양 운 근,1.5,#FFFFFF,LEFT,64,27,Woon Geun Yang,0.75,#808080,LEFT
+,08-356,0.5,0,0,default,5,175,2,08-356,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,정 은 교,1.5,#FFFFFF,LEFT,64,27,Eun Gyo Jeong,0.75,#808080,LEFT
+,08-357,0.5,0,0,default,5,175,2,08-357,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,전 석 희,1.5,#FFFFFF,LEFT,64,27,Seok Hee Jeon,0.75,#808080,LEFT
+,08-358,0.5,0,0,default,5,175,2,08-358,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,이 영 훈,1.5,#FFFFFF,LEFT,64,27,Yeonghun Lee,0.75,#808080,LEFT
+,08-359,0.5,0,0,default,3,184,30,08-350,1,#0000FF,RIGHT,10,10,재료 및 소자이론 연구실험실,1.5,#FFFFFF,LEFT,10,29,Materials and Devices Theory Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-361,0.5,0,0,default,3,184,30,08-361,1,#0000FF,RIGHT,10,10,무선및마이크로파통신 연구실험실,1.35,#FFFFFF,LEFT,10,29,Wireless & Microwave Communication Lab.,0.6,#808080,LEFT,,,,,,,,,,,,
+,08-362,0.5,0,0,default,3,184,30,08-362,1,#0000FF,RIGHT,10,10,바이오전자공학 연구실험실,1.5,#FFFFFF,LEFT,10,29,Bioelectronics Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-363,0.5,0,0,default,5,175,2,08-363,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,변 상 원,1.5,#FFFFFF,LEFT,64,27,Sangwon Byun,0.75,#808080,LEFT
+,08-363c,0.5,0,0,default,5,175,2,08-363,0.85,#FFFFFF,RIGHT,10,9,전자공학과 교수,0.6,#808080,LEFT,10,17.5,Dept. of Electronics Enginerring Professor,0.38,#808080,LEFT,10,25,(한자),0.6,#808080,LEFT,10,33,변상원 변상원 Sangwon Byun,0.6,#FFFFFF,LEFT
+,08-364,0.5,0,0,default,5,175,2,08-364,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,구 경 헌,1.5,#FFFFFF,LEFT,64,27,Kyung Heon Koo,0.75,#808080,LEFT
+,08-365,0.5,0,0,default,5,175,2,08-365,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,김 교 선,1.5,#FFFFFF,LEFT,64,27,Kyosun Kim,0.75,#808080,LEFT
+,08-366,0.5,0,0,default,5,175,2,08-366,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,이 성 민,1.5,#FFFFFF,LEFT,64,27,Seong Min Lee,0.75,#808080,LEFT
+,08-367,0.5,0,0,default,5,175,2,08-367,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,유 용 석,1.5,#FFFFFF,LEFT,64,27,Yongseok Yoo,0.75,#808080,LEFT
+,08-367c,0.5,0,0,default,5,175,2,08-367,0.85,#FFFFFF,RIGHT,10,9,전자공학과 교수,0.6,#808080,LEFT,10,17.5,Dept. of Electronics Enginerring Professor,0.38,#808080,LEFT,10,25,(한자),0.6,#808080,LEFT,10,33,유용석 (한자) Yongseok Yoo,0.6,#FFFFFF,LEFT
+,08-368,0.5,0,0,default,5,175,2,08-368,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,송 준 영,1.5,#FFFFFF,LEFT,64,27,Junyoung Song,0.75,#808080,LEFT
+,08-368c,0.5,0,0,default,5,175,2,08-368,0.85,#FFFFFF,RIGHT,10,9,전자공학과 교수,0.6,#808080,LEFT,10,17.5,Dept. of Electronics Enginerring Professor,0.38,#808080,LEFT,10,25,(한자),0.6,#808080,LEFT,10,33,송준영 (한자) Junyoung Song,0.6,#FFFFFF,LEFT
+,08-369,0.5,0,0,default,5,175,2,08-369,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,김 형 택,1.5,#FFFFFF,LEFT,64,27,Hyung Taek Kim,0.75,#808080,LEFT
+,08-370,0.5,0,0,default,5,175,2,08-370,0.85,#FFFFFF,RIGHT,12,10,신소재공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Advanced Materials Engineering Professor,0.35,#808080,LEFT,12,22,강 영 호,1.5,#FFFFFF,LEFT,64,27,Youngho Kang,0.75,#808080,LEFT
+,08-370c,0.5,0,0,default,5,175,2,08-370,0.85,#FFFFFF,RIGHT,10,9,전자공학과 교수,0.6,#808080,LEFT,10,17.5,Dept. of Electronics Enginerring Professor,0.38,#808080,LEFT,10,25,(한자),0.6,#808080,LEFT,10,33,강영호 (한자) Youngho Kang,0.6,#FFFFFF,LEFT
+,08-371,0.5,0,0,default,3,184,30,8-371,1,#0000FF,RIGHT,10,10,나노재료연구실,1.75,#FFFFFF,LEFT,10,29,Nano Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-372,0.5,0,0,default,3,184,30,08-372,1,#0000FF,RIGHT,10,10,전산재료과학연구실,1.75,#FFFFFF,LEFT,10,29,Computational Materials Science Laboratory,0.6,#808080,LEFT,,,,,,,,,,,,
+,08-373,0.5,0,0,default,3,184,30,8-373,1,#0000FF,RIGHT,10,10,나노재료실험실2,1.75,#FFFFFF,LEFT,10,29,HBRL Research Group,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-374,0.5,0,0,default,3,184,30,8-374,1,#0000FF,RIGHT,10,10,세라믹실험실,1.75,#FFFFFF,LEFT,10,29,Ceramic Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-375,0.5,0,0,default,5,175,2,08-375,0.85,#FFFFFF,RIGHT,12,10,신소재공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Advanced Materials Engineering Professor,0.35,#808080,LEFT,12,22,김 배 연,1.5,#FFFFFF,LEFT,64,27,Bae Yeon Kim,0.75,#808080,LEFT
+,08-376,0.5,0,0,default,5,175,2,08-376,0.85,#FFFFFF,RIGHT,12,10,신소재공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Advanced Materials Engineering Professor,0.35,#808080,LEFT,12,22,김 종 범,1.5,#FFFFFF,LEFT,64,27,"Chong, Bum Kim",0.75,#808080,LEFT
+,08-377,0.5,0,0,default,5,175,2,08-377,0.85,#FFFFFF,RIGHT,12,10,신소재공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Advanced Materials Engineering Professor,0.35,#808080,LEFT,12,22,명 재 하,1.5,#FFFFFF,LEFT,64,27,Jaeha Myung,0.75,#808080,LEFT
+,08-377c,0.5,0,0,default,5,17,2,08-377,0.85,#FFFFFF,LEFT,104,9,신소재공학과 교수,0.6,#808080,LEFT,104,17.5,Dept. of Advanced Materials Engineering Professor,0.34,#808080,LEFT,104,25,(한자),0.6,#808080,LEFT,104,33,명재하 (한자) Jaeha Myung,0.6,#FFFFFF,LEFT
+,08-378,0.5,0,0,default,5,175,2,08-378,0.85,#FFFFFF,RIGHT,12,10,신소재공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Advanced Materials Engineering Professor,0.35,#808080,LEFT,12,22,박 재 윤,1.5,#FFFFFF,LEFT,64,27,Jae Yun Park,0.75,#808080,LEFT
+,08-379,0.5,0,0,default,3,184,30,08-379,1,#0000FF,RIGHT,10,10,탕비실,1.75,#FFFFFF,LEFT,10,29,Office Pantry,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-380,0.5,0,0,default,3,184,30,08-380,1,#0000FF,RIGHT,10,10,스핀전자재료실험실,1.75,#FFFFFF,LEFT,10,29,Spintronic Materials Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-381,0.5,0,0,default,3,184,30,08-381,1,#0000FF,RIGHT,10,10,전자패키지실험실,1.75,#FFFFFF,LEFT,10,29,Microelectronic Package Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-382,0.5,0,0,default,3,184,30,08-382,1,#0000FF,RIGHT,10,10,나노재료실험실1,1.75,#FFFFFF,LEFT,10,29,Nano Materials Lab.1,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-383,0.5,0,0,default,3,184,30,08-383,1,#0000FF,RIGHT,10,10,전산실습실,1.75,#FFFFFF,LEFT,10,29,Computer Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-384,0.5,0,0,default,3,148,15,08-384,1,#0000FF,LEFT,140,10,신소재공학과학생회실,1.75,#FFFFFF,RIGHT,140,29,Students Association - Dept. of Materials Science & Engineering,0.4,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-385b,0.5,0,-0.5,default,3,148,15,08-385,1,#0000FF,LEFT,140,10,강 의 실,1.75,#FFFFFF,RIGHT,140,29,Lecture Room,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-385,0.5,0,0,default,3,184,30,08-385,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-386b,0.5,0,-0.5,default,3,148,15,08-386,1,#0000FF,LEFT,140,10,강 의 실,1.75,#FFFFFF,RIGHT,140,29,Lecture Room,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-386,0.5,0,0,default,3,184,30,08-386,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-401,0.5,0,0,default,3,184,30,08-401,1,#0000FF,RIGHT,10,10,컴퓨터실습실,1.75,#FFFFFF,LEFT,10,29,Computer Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-402,0.5,0,0,default,3,184,30,08-402,1,#0000FF,RIGHT,10,10,빅데이터 분석실,1.75,#FFFFFF,LEFT,10,29,Big Data Analytics Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-403,0.5,0,0,default,3,148,15,08-403,1,#0000FF,LEFT,140,10,산업경영공학과사무실,1.75,#FFFFFF,RIGHT,140,29,Dept. of Industrial and Management Engineering,0.6,#808080,RIGHT,,,,,,,,,,,,
+,08-404,0.5,0,0,default,3,184,30,08-404,1,#0000FF,RIGHT,10,10,세미나실,1.75,#FFFFFF,LEFT,10,29,Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-405,0.5,0,0,default,3,184,30,08-405,1,#0000FF,RIGHT,10,10,물류시스템연구실,1.75,#FFFFFF,LEFT,10,29,Logistics System Research Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-406,0.5,0,0,default,3,184,30,08-406,1,#0000FF,RIGHT,10,10,제품시스템공학 연구실,1.75,#FFFFFF,LEFT,10,29,Product Systems Engineering Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-407,0.5,0,0,default,3,184,30,08-407,1,#0000FF,RIGHT,10,10,노동과학연구실,1.75,#FFFFFF,LEFT,10,29,Labor Science Research Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-408,0.5,0,0,default,3,184,30,08-408,1,#0000FF,RIGHT,10,10,데이터사이언스연구실,1.75,#FFFFFF,LEFT,10,29,Data Science Research Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-411,0.5,0,0,default,3,184,30,08-411,1,#0000FF,RIGHT,10,10,학생연구활동실 1,1.75,#FFFFFF,LEFT,10,29,Students Research Room 1,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-412,0.5,0,0,default,3,184,30,08-412,1,#0000FF,RIGHT,10,10,심화프로젝트 실습실,1.75,#FFFFFF,LEFT,10,29,Advanced Research Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-413,0.5,0,0,default,3,184,30,08-413,1,#0000FF,RIGHT,10,10,컴퓨터 및 소프트웨어 실습실,1.5,#FFFFFF,LEFT,10,29,Computer & Software Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-416,0.5,0,0,default,3,184,30,08-416,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-417,0.5,0,0,default,3,184,30,08-417,1,#0000FF,RIGHT,10,10,전자공학과학생회실,1.75,#FFFFFF,LEFT,10,29,Student Assocication - Dept. of Electronics Enginerring,0.45,#808080,LEFT,,,,,,,,,,,,
+,08-417b,0.5,0,-0.5,default,3,148,15,08-417,1,#0000FF,LEFT,140,10,전자공학과학생회실,1.75,#FFFFFF,RIGHT,140,29,Student Assocication - Dept. of Electronics Enginerring,0.45,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-418,0.5,0,0,default,3,184,30,08-418,1,#0000FF,RIGHT,10,10,융합다차원소자연구실험실,1.6,#FFFFFF,LEFT,10,29,Hybrid Multi-scale materials and Device Lab.,0.6,#808080,LEFT,,,,,,,,,,,,
+,08-419,0.5,0,0,default,3,184,30,08-419,1,#0000FF,RIGHT,10,10,캡스톤디자인실습실1,1.75,#FFFFFF,LEFT,10,29,Capstone Design Lab. 1,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-420,0.5,0,0,default,3,184,30,08-420,1,#0000FF,RIGHT,10,10,통신 및 네트워크 실습실,1.75,#FFFFFF,LEFT,10,29,Communication & Network Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-421,0.5,0,0,default,3,184,30,08-421,1,#0000FF,RIGHT,10,10,안테나 및 단말기 실험실,1.75,#FFFFFF,LEFT,10,29,Antenna and Terminal Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-423,0.5,0,0,default,3,184,30,08-423,1,#0000FF,RIGHT,10,10,산업지능연구실,1.75,#FFFFFF,LEFT,10,29,Industrial Intelligence Research Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-424,0.5,0,0,default,3,184,30,08-424,1,#0000FF,RIGHT,10,10,기계시스템 거동특성 시뮬레이션 실험실,1.2,#FFFFFF,LEFT,10,29,MEchanical system MOtion Simulations(MEMOS) Lab.,0.45,#808080,LEFT,,,,,,,,,,,,
+,08-425,0.5,0,0,default,3,184,30,08-425,1,#0000FF,RIGHT,10,10,집적회로 및 시스템 연구실험실,1.45,#FFFFFF,LEFT,10,29,Integrated Circuits and Systems Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-426,0.5,0,0,default,3,184,30,08-426,1,#0000FF,RIGHT,10,10,사용자가치연구실,1.75,#FFFFFF,LEFT,10,29,User Value Laboratory,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-429,0.5,0,0,default,3,184,30,08-429,1,#0000FF,RIGHT,10,10,나노전기소자 및 센서 연구실,1.5,#FFFFFF,LEFT,10,29,Nano Device & Sensor System Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-431,0.5,0,0,default,3,184,30,08-431,1,#0000FF,RIGHT,10,10,전기환경실험실,1.75,#FFFFFF,LEFT,10,29,Electrical Environmental Laboratory,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-432,0.5,0,0,default,3,184,30,08-432,1,#0000FF,RIGHT,10,10,무인 · 지능시스템 제어연구실,1.5,#FFFFFF,LEFT,10,29,Unmanned & Intelligent systems Control Lab(UNICON Lab),0.3,#808080,LEFT,,,,,,,,,,,,
+,08-433,0.5,0,0,default,3,184,30,08-433,1,#0000FF,RIGHT,10,10,강의실(중)-5,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-435,0.5,0,0,default,3,184,30,08-435,1,#0000FF,RIGHT,10,10,에너지화학공학과 학생회실,1.75,#FFFFFF,LEFT,10,29,Students Association-Dept.of Energy and Chemical Engineering,0.25,#808080,LEFT,,,,,,,,,,,,
+,08-435b,0.5,0,-0.5,default,3,148,15,08-435,1,#0000FF,LEFT,140,10,에너지화학공학과 학생회실,1.75,#FFFFFF,RIGHT,140,29,Students Association-Dept.of Energy and Chemical Engineering,0.25,#FFFFFF,RIGHT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-438,0.5,0,0,default,3,184,30,08-438,1,#0000FF,RIGHT,10,10,강의실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-438b,0.5,0,-0.5,default,3,148,15,08-438,1,#0000FF,LEFT,140,10,강의실,1.75,#FFFFFF,RIGHT,140,29,Lecture Room,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-443,0.5,0,0,default,5,175,2,08-443,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Enginerring Professor,0.35,#808080,LEFT,12,22,김 관 호,1.5,#FFFFFF,LEFT,64,27,"Kim, Kwan-Ho",0.75,#808080,LEFT
+,08-444,0.5,0,0,default,5,175,2,08-444,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Enginerring Professor,0.35,#808080,LEFT,12,22,박 재 현,1.5,#FFFFFF,LEFT,64,27,"Park, Jae-hyun",0.75,#808080,LEFT
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-452,0.5,0,0,default,5,175,2,08-452,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,최    욱,1.5,#FFFFFF,LEFT,64,27,Choi Ouk,0.75,#808080,LEFT
+,08-453,0.5,0,0,default,5,175,2,08-453,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,진 성 훈,1.5,#FFFFFF,LEFT,64,27,"Jin, Sung-Hun",0.75,#808080,LEFT
+,08-454,0.5,0,0,default,5,175,2,08-454,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,정 재 용,1.5,#FFFFFF,LEFT,64,27,Jaeyong Chung,0.75,#808080,LEFT
+,08-455,0.5,0,0,default,5,175,2,08-455,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,서 정 현,1.5,#FFFFFF,LEFT,64,27,Jeong Hyun Seo,0.75,#808080,LEFT
+,08-456,0.5,0,0,default,5,175,2,08-456,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,김    훈,1.5,#FFFFFF,LEFT,64,27,Hoon Kim,0.75,#808080,LEFT
+,08-457,0.5,0,0,default,3,184,30,08-457,1,#0000FF,RIGHT,10,10,WIT연구실험실,1.75,#FFFFFF,LEFT,10,29,Wireless Innovative Transmission Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-458,0.5,0,0,default,3,184,30,08-458,1,#0000FF,RIGHT,10,10,플라즈마연구실험실,1.75,#FFFFFF,LEFT,10,29,Plasma Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-459,0.5,0,0,default,3,184,30,08-459,1,#0000FF,RIGHT,10,10,집적회로설계연구실험실,1.75,#FFFFFF,LEFT,10,29,Integrated Circuit Design Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-460,0.5,0,0,default,3,184,30,08-460,1,#0000FF,RIGHT,10,10,지능제어연구실험실,1.75,#FFFFFF,LEFT,10,29,Intelligent Control Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-461,0.5,0,0,default,5,175,2,08-461,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,홍 연 찬,1.5,#FFFFFF,LEFT,64,27,Yeon Chan Hong,0.75,#808080,LEFT
+,08-462,0.5,0,0,default,5,175,2,08-462,0.85,#FFFFFF,RIGHT,12,10,전자공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Electronics Enginerring Professor,0.35,#808080,LEFT,12,22,유 종 근,1.5,#FFFFFF,LEFT,64,27,Chong Gun Yu,0.75,#808080,LEFT
+,08-463,0.5,0,0,default,5,175,2,08-463,0.85,#FFFFFF,RIGHT,12,10,신소재공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Advanced Materials Engineering Professor,0.35,#808080,LEFT,12,22,이한보람,1.5,#FFFFFF,LEFT,66,27,"Lee, Han-Bo-Ram",0.75,#808080,LEFT
+,08-464,0.5,0,0,default,5,175,2,08-464,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Engineering Professor,0.35,#808080,LEFT,12,22,김 연 수,1.5,#FFFFFF,LEFT,64,27,Yon-Soo Kim,0.75,#808080,LEFT
+,08-465,0.5,0,0,default,5,175,2,08-465,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Engineering Professor,0.35,#808080,LEFT,12,22,김 철 홍,1.5,#FFFFFF,LEFT,64,27,Chol-Hong Kim,0.75,#808080,LEFT
+,08-466,0.5,0,0,default,5,175,2,08-466,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Engineering Professor,0.35,#808080,LEFT,12,22,박 기 정,1.5,#FFFFFF,LEFT,64,27,Kijung Park,0.75,#808080,LEFT
+,08-467,0.5,0,0,default,5,175,2,08-467,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Engineering Professor,0.35,#808080,LEFT,12,22,김 병 수,1.5,#FFFFFF,LEFT,64,27,Byung Soo Kim,0.75,#808080,LEFT
+,08-468,0.5,0,0,default,5,175,2,08-468,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Engineering Professor,0.35,#808080,LEFT,12,22,유 재 홍,1.5,#FFFFFF,LEFT,64,27,JaeHong Yu,0.75,#808080,LEFT
+,08-469,0.5,0,0,default,3,184,30,08-469,1,#0000FF,RIGHT,10,10,통계적 학습 및 위험분석 연구실,1.35,#FFFFFF,LEFT,10,29,Statistical Learning And Risk Analysis Lab.,0.6,#808080,LEFT,,,,,,,,,,,,
+,08-470,0.5,0,0,default,3,184,30,08-470,1,#0000FF,RIGHT,10,10,스마트팩토리 연구실,1.75,#FFFFFF,LEFT,10,29,Smart Factory Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-471,0.5,0,0,default,3,184,30,08-471,1,#0000FF,RIGHT,10,10,생산혁신연구실,1.75,#FFFFFF,LEFT,10,29,Innovative Production Research Lab.,0.65,#808080,LEFT,,,,,,,,,,,,
+,08-472,0.5,0,0,default,3,184,30,08-472,1,#0000FF,RIGHT,10,10,인공지능운영최적화 연구실,1.5,#FFFFFF,LEFT,10,29,AI & Optimization Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-473,0.5,0,0,default,5,175,2,08-473,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Engineering Professor,0.35,#808080,LEFT,12,22,유 우 식,1.5,#FFFFFF,LEFT,64,27,Woo-Sik Yoo,0.75,#808080,LEFT
+,08-474,0.5,0,0,default,5,175,2,08-474,0.85,#FFFFFF,RIGHT,12,10,산업경영공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Industrial and Management Engineering Professor,0.35,#808080,LEFT,12,22,장 석 화,1.5,#FFFFFF,LEFT,64,27,Suk-Hwa Chang,0.75,#808080,LEFT
+,08-475,0.5,0,0,default,5,17,2,08-475,0.85,#FFFFFF,LEFT,104,10,산업경영공학과 교수,0.35,#808080,LEFT,104,16,Dept. of Industrial and Management Engineering Professor,0.3,#808080,LEFT,104,24,김 재 곤,1.25,#FFFFFF,LEFT,144,27,Jae-Gon Kim,0.6,#808080,LEFT
+,08-476,0.5,0,0,default,5,175,2,08-476,0.85,#FFFFFF,RIGHT,12,10,신소재공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Materials Sci. & Eng. Professor,0.35,#808080,LEFT,12,22,김 정 곤,1.5,#FFFFFF,LEFT,64,27,Jeong-Gon Kim,0.75,#808080,LEFT
+,08-477,0.5,0,0,default,3,184,30,08-477,1,#0000FF,RIGHT,10,10,탕 비 실,1.75,#FFFFFF,LEFT,10,29,Office Pantry,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-478,0.5,0,0,default,3,184,30,08-478,1,#0000FF,RIGHT,10,10,비즈니스솔루션실습실,1.75,#FFFFFF,LEFT,10,29,Business Solution Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-479,0.5,0,0,default,3,184,30,08-479,1,#0000FF,RIGHT,10,10,산경 컨퍼런스룸,1.75,#FFFFFF,LEFT,10,29,IME Conference Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-480,0.5,0,0,default,3,184,30,08-480,1,#0000FF,RIGHT,10,10,캡스톤디자인실,1.75,#FFFFFF,LEFT,10,29,Capstone Design Studio,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-481,0.5,0,0,default,3,184,30,08-481,1,#0000FF,RIGHT,10,10,산업경영공학과주간학생회실,1.75,#FFFFFF,LEFT,10,29,Students Association - Dept. of Industrial and Management Engineering,0.35,#808080,LEFT,,,,,,,,,,,,
+,08-481b,0.5,0,-0.5,default,3,148,15,08-481,1,#0000FF,LEFT,140,10,산업경영공학과주간학생회실,1.35,#FFFFFF,RIGHT,140,29,Students Association - Dept. of Industrial and Management Engineering,0.35,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-482b,0.5,0,-0.5,default,3,148,15,08-482,1,#0000FF,LEFT,140,10,강 의 실,1.75,#FFFFFF,RIGHT,140,29,Lecture Room,0.4,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-482,0.5,0,0,default,3,184,30,08-482,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-483b,0.5,0,-0.5,default,3,148,15,08-483,1,#0000FF,LEFT,140,10,강 의 실,1.75,#FFFFFF,RIGHT,140,29,Lecture Room,0.4,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-483,0.5,0,0,default,3,184,30,08-483,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-502,0.5,0,0,default,3,184,30,08-502,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-503,0.5,0,0,default,3,184,30,08-503,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-507,0.5,0,0,default,3,184,30,08-507,1,#0000FF,RIGHT,10,10,대학원 세미나실,1.75,#FFFFFF,LEFT,10,29,Graduate School Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-508,0.5,0,0,default,3,184,30,08-508,1,#0000FF,RIGHT,10,10,신재생에너지운영연구실,1.75,#FFFFFF,LEFT,10,29,Renewable Energy Management Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-516,0.5,0,0,default,3,184,30,08-516,1,#0000FF,RIGHT,10,10,캡스톤디자인실습실2,1.75,#FFFFFF,LEFT,10,29,Capstone Design Lab. 2,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-517,0.5,0,0,default,3,184,30,08-517,1,#0000FF,RIGHT,10,10,캡스톤디자인실습실3,1.75,#FFFFFF,LEFT,10,29,Capstone Design Lab. 3,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-518,0.5,0,0,default,3,184,30,08-518,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-520,0.5,0,0,default,3,184,30,08-520,1,#0000FF,RIGHT,10,10,기초설계실습실,1.75,#FFFFFF,LEFT,10,29,Basic Design Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-524,0.5,0,0,default,3,184,30,08-524,1,#0000FF,RIGHT,10,10,디지털미디어 실습실,1.75,#FFFFFF,LEFT,10,29,Digital Media Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-525,0.5,0,0,default,3,184,30,08-525,1,#0000FF,RIGHT,10,10,전산역학재료연구실,1.75,#FFFFFF,LEFT,10,29,Computational Mechanics & Materials Lab.,0.65,#808080,LEFT,,,,,,,,,,,,
+,08-526,0.5,0,0,default,3,184,30,08-526,1,#0000FF,RIGHT,10,10,스마트마이크로그리드연구실험실,1.35,#FFFFFF,LEFT,10,29,Smart Microgrid Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-527,0.5,0,0,default,3,184,30,08-527,1,#0000FF,RIGHT,10,10,영상인식연구실험실,1.75,#FFFFFF,LEFT,10,29,Computer Vision and Machine Learning Lab.,0.65,#808080,LEFT,,,,,,,,,,,,
+,08-528,0.5,0,0,default,3,184,30,08-528,1,#0000FF,RIGHT,10,10,SVC 연구실험실,1.75,#FFFFFF,LEFT,10,29,Semiconductor & VLSI Circuit Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-529,0.5,0,0,default,3,184,30,08-529,1,#0000FF,RIGHT,10,10,세미나실,1.75,#FFFFFF,LEFT,10,29,Seminar Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-530,0.5,0,0,default,3,184,30,08-530,1,#0000FF,RIGHT,10,10,에너지화공심화실험실,1.75,#FFFFFF,LEFT,10,29,Experiment Lab for Energy and Chemical Engineering,0.45,#808080,LEFT,,,,,,,,,,,,
+,08-531,0.5,0,0,default,3,184,30,08-531,1,#0000FF,RIGHT,10,10,전산역학재료연구실,1.75,#FFFFFF,LEFT,10,29,Computational Mechanics & Materials Lab.,0.65,#808080,LEFT,,,,,,,,,,,,
+,08-532,0.5,0,0,default,3,184,30,08-532,1,#0000FF,RIGHT,10,10,전기전자공학실험실,1.75,#FFFFFF,LEFT,10,29,Electrial Engineering,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-533,0.5,0,0,default,5,175,2,08-533,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Mechatronics Engineering Professor,0.35,#808080,LEFT,12,22,박 상 인,1.5,#FFFFFF,LEFT,64,27,"Park, Sang-in",0.75,#808080,LEFT
+,08-534,0.5,0,0,default,3,184,30,08-534,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-535,0.5,0,0,default,4,184,30,08-535,1,#0000FF,RIGHT,10,10,강의실/창의융합협업공간,1.75,#FFFFFF,LEFT,10,27,Lecture Room/Creative and,0.75,#808080,LEFT,10,34,Convergence Collaboration Space,0.75,#808080,LEFT,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-539,0.5,0,0,default,3,184,30,08-539,1,#0000FF,RIGHT,10,10,강 의 실,1.75,#FFFFFF,LEFT,10,29,Lecture Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-539b,0.5,0,-0.5,default,3,148,15,08-539,1,#0000FF,LEFT,140,10,강 의 실,1.75,#FFFFFF,RIGHT,140,29,Lecture Room,0.4,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-540,0.5,0,0,default,3,184,30,08-540,1,#0000FF,RIGHT,10,10,메카트로닉스공학과 학생회의실,1.75,#FFFFFF,LEFT,10,29,Student Meeting Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-540b,0.5,0,-0.5,default,3,148,15,08-540,1,#0000FF,LEFT,140,10,메카트로닉스공학과 학생회의실,1.35,#FFFFFF,RIGHT,140,29,Student Meeting Room,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-542,0.5,0,0,default,3,184,30,08-542,1,#0000FF,RIGHT,10,10,메카트로닉스공학과사무실,1.75,#FFFFFF,LEFT,10,29,Dept. of Mechantronics Engineering,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-542b,0.5,0,-0.5,default,3,148,15,08-542,1,#0000FF,LEFT,140,10,메카트로닉스공학과사무실,1.35,#FFFFFF,RIGHT,140,29,Dept. of Mechantronics Engineering,0.75,#FFFFFF,RIGHT,,,,,,,,,,,,
+,08-543,0.5,0,0,default,3,184,30,08-543,1,#0000FF,RIGHT,10,10,에너지변환및저장실험실,1.75,#FFFFFF,LEFT,10,29,Energy Conversion and Storage Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-545,0.5,0,0,default,3,184,30,08-545,1,#0000FF,RIGHT,10,10,신재생에너지생산연구실,1.75,#FFFFFF,LEFT,10,29,Renewable Energy Production Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-547,0.5,0,0,default,5,175,2,08-547,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,윤 종 윤,1.5,#FFFFFF,LEFT,64,27,Jongyun Yoon,0.75,#808080,LEFT
+,08-548,0.5,0,0,default,3,184,30,08-548,1,#0000FF,RIGHT,10,10,유-무기 혼성 나노물질 연구실,1.5,#FFFFFF,LEFT,10,29,Organic-Inorganic Hybrid Nanomaterials Lab.,0.65,#808080,LEFT,,,,,,,,,,,,
+,08-549,0.5,0,0,default,3,184,30,08-549,1,#0000FF,RIGHT,10,10,유기 광전자 연구실,1.75,#FFFFFF,LEFT,10,29,Organic Optoelectronics Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-550,0.5,0,0,default,3,184,30,08-550,1,#0000FF,RIGHT,10,10,에너지환경촉매연구실,1.75,#FFFFFF,LEFT,10,29,Energy & Environmental Catalysis Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-551,0.5,0,0,default,3,184,30,08-551,1,#0000FF,RIGHT,10,10,뇌인지 연구실험실,1.75,#FFFFFF,LEFT,10,29,Brain & Information Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-553,0.5,0,0,default,5,175,2,08-553,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,홍 선 표,1.5,#FFFFFF,LEFT,64,27,"Hong, Sun-Pyo",0.75,#808080,LEFT
+,08-554,0.5,0,0,default,5,175,2,08-554,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,정 현 두,1.5,#FFFFFF,LEFT,64,27,"Jeong, Hyundoo",0.75,#808080,LEFT
+,08-555,0.5,0,0,default,5,175,2,08-555,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,김 기 준,1.5,#FFFFFF,LEFT,64,27,"Kim, Ki-Joon",0.75,#808080,LEFT
+,08-556,0.5,0,0,default,5,175,2,08-556,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,차 재 민,1.5,#FFFFFF,LEFT,64,27,"Cha, Jae Min",0.75,#808080,LEFT
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-558,0.5,0,0,default,5,175,2,08-558,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,박 기 원,1.5,#FFFFFF,LEFT,64,27,"Park, Kiwon",0.75,#808080,LEFT
+,08-559,0.5,0,0,default,5,175,2,08-559,0.85,#FFFFFF,RIGHT,12,10,메카트로닉스공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,한 유 성,1.5,#FFFFFF,LEFT,64,27,"Han, Yousung",0.75,#808080,LEFT
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-561,0.5,0,0,default,3,184,30,08-561,1,#0000FF,RIGHT,10,10,시스템반도체연구실험실,1.75,#FFFFFF,LEFT,10,29,System-on-Chips Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-563,0.5,0,0,default,3,184,30,08-563,1,#0000FF,RIGHT,10,10,SFS연구실험실,1.75,#FFFFFF,LEFT,10,29,Smart Flexible System Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-564,0.5,0,0,default,5,175,2,08-564,0.85,#FFFFFF,RIGHT,12,10,에너지화학공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,권 오 중,1.5,#FFFFFF,LEFT,64,27,"Kwon, Oh Joong",0.75,#808080,LEFT
+,08-565,0.5,0,0,default,5,175,2,08-565,0.85,#FFFFFF,RIGHT,12,10,에너지화학공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,박 민 범,1.5,#FFFFFF,LEFT,64,27,Min Bum Park,0.75,#808080,LEFT
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-569,0.5,0,0,default,5,175,2,08-569,0.85,#FFFFFF,RIGHT,12,10,에너지화학공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,김  정,1.5,#FFFFFF,LEFT,64,27,"Kim, Jeong",0.75,#808080,LEFT
+,08-570,0.5,0,0,default,5,175,2,08-570,0.85,#FFFFFF,RIGHT,12,10,에너지화학공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,박 영 돈,1.5,#FFFFFF,LEFT,64,27,"Park, Yeong-Don",0.75,#808080,LEFT
+,08-571,0.5,0,0,default,5,175,2,08-571,0.85,#FFFFFF,RIGHT,12,10,에너지화학공학과 교수,0.35,#808080,LEFT,12,16,Dept. of Energy and Chemical Engineering Professor,0.35,#808080,LEFT,12,22,이 창 연,1.5,#FFFFFF,LEFT,64,27,"Lee, Chang-Yeon",0.75,#808080,LEFT
+,08-572,0.5,0,0,default,3,184,30,08-572,1,#0000FF,RIGHT,10,10,에너지화공기초실험실,1.75,#FFFFFF,LEFT,10,29,Elementary Lab for Energy and Chemical Engineering,0.45,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-575,0.5,0,0,default,3,184,30,08-575,1,#0000FF,RIGHT,10,10,전기화학 에너지/디바이스 연구실,1.35,#FFFFFF,LEFT,10,29,Electrochemical Energy/Device Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,,0.5,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,08-580,0.5,0,0,default,3,184,30,08-580,1,#0000FF,RIGHT,10,10,생산혁신실험실,1.75,#FFFFFF,LEFT,10,29,Production Innovation Lab.,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-581,0.5,0,0,default,3,184,30,08-581,1,#0000FF,RIGHT,10,10,e-러닝 스튜디오,1.75,#FFFFFF,LEFT,10,29,e-Learning Studio,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-582,0.5,0,0,default,3,184,30,08-582,1,#0000FF,RIGHT,10,10,서 버 실,1.75,#FFFFFF,LEFT,10,29,Server Room,0.75,#808080,LEFT,,,,,,,,,,,,
+,08-583,0.5,0,0,default,3,184,30,08-583,1,#0000FF,RIGHT,10,10,인간공학실험실,1.75,#FFFFFF,LEFT,10,29,Ergonomics Lab.,0.75,#808080,LEFT,,,,,,,,,,,,

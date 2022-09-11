@@ -7,9 +7,11 @@ import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignModelRegistry;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
 import kr.goldenmine.inumodelloader.inumodelloader.entity.ModTileEntities;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +22,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -29,7 +33,7 @@ public class INUModelLoader {
 
     public static final String MOD_ID = "inumodelloader";
     public static final String MOD_NAME = "INUModelLoader";
-    public static final String VERSION = "1.2.8-SNAPSHOT";
+    public static final String VERSION = "1.3.0-SNAPSHOT";
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
@@ -59,10 +63,47 @@ public class INUModelLoader {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            RenderType cutout = RenderType.getCutout();
             RenderType cutoutMipped = RenderType.getCutoutMipped();
 
             RenderTypeLookup.setRenderLayer(ModBlocks.TALL_INU_DOOR_BLOCK.get(), cutoutMipped);
             RenderTypeLookup.setRenderLayer(ModBlocks.TEST_OBJ_BLOCK.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.BMJ_LAB1.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.BMJ_LAB2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.BMJ_LAB3.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.BSY_LOCKER.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.BSY_REAGENT1.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.BSY_REAGENT2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.CHAIR_NOBACK_1.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.CHAIR_NOBACK_2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.EUNHA_ELECTRONICS_SHELVES_1.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.EUNHA_ELECTRONICS_SHELVES_2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.IIS_PRINTER.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.JSY_DESK.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.KJH_HOME.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.KJH_HOME2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.KJH_SMOKE.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.KJH_TRASH.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.LEEJUNYONG_OVEN_1.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.LEEJUNYONG_OVEN_2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.LEEJUNYONG_OVEN_3.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.LEEJUNYONG_SINK_1.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.LEEJUNYONG_SINK_2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.LINS_BOOKSHELF.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_BUCKET.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_CHAIR.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK1.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK2.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK3.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK4.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK5.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK6.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK7.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.OHYEJIN_DESK8.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.PROP_BOX.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.PROP_CAMCODER.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.PROP_STORAGE_BOX.get(), cutoutMipped);
+            RenderTypeLookup.setRenderLayer(ModBlocks.PROP_TISSUE_BOX.get(), cutoutMipped);
 
             SignModelRegistry.bindAllRenderers();
 
@@ -135,12 +176,21 @@ public class INUModelLoader {
     }
 
     public void loadSignData() {
-        //        ResourceLocation sheetLocation = new ResourceLocation(Inumodelloader.MOD_ID, "data/signtext.csv");
+        ResourceLocation sheetLocation = new ResourceLocation(INUModelLoader.MOD_ID, "data/signtext.csv");
         try {
             LOGGER.info("reading sheet data...");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResource("data/signtext.csv").openStream()));
+//            InputStream is = INUModelLoader.class.getClassLoader().getResourceAsStream("data/signtext.csv");
+
+            InputStream is = Minecraft.getInstance().getResourceManager().getResource(sheetLocation).getInputStream();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             List<String> list = reader.lines().collect(Collectors.toList());
             reader.close();
+            LOGGER.info("readed " + list.size() + " lines.");
+
+//            for(int i = 0; i < list.size(); i++) {
+//                LOGGER.info(list.get(i));
+//            }
 
             SignSet.loadCsvAll(list);
             LOGGER.info("loaded " + SignSet.getSignInfoMap().size() + " sign data.");
@@ -158,7 +208,7 @@ public class INUModelLoader {
                 LOGGER.warn(log);
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.toString());
         }
     }
 }

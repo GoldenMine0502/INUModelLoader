@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "inumodelloader:block/prop_tissue_box_texture",
+		"particle": "inumodelloader:block/prop_tissue_box_texture"
+	},
+	"elements": [
+		{
+			"from": [4.5, 0, 8],
+			"to": [11.5, 3, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 1.5, 9.5]},
+			"faces": {
+				"north": {"uv": [0.35586, 0.67066, 10.75107, 5.41317], "texture": "#0"},
+				"east": {"uv": [11.94183, 6.59709, 15.65098, 10.93584], "texture": "#0"},
+				"south": {"uv": [0.67705, 10.74423, 10.40205, 15.42515], "texture": "#0"},
+				"west": {"uv": [11.94183, 6.59709, 15.65098, 10.93584], "texture": "#0"},
+				"up": {"uv": [0.3627, 6.02224, 10.7882, 10.38837], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [12.20188, 6.78956, 15.20188, 8.77331], "rotation": 90, "texture": "#0"}
+			}
+		}
+	]
+}

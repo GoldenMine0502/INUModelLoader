@@ -1,15 +1,86 @@
 package kr.goldenmine.assetscreator
 
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet
-import kr.goldenmine.inumodelloader.inumodelloader.util.SignInfo
 import java.awt.Color
 import java.awt.Graphics2D
 import java.awt.image.BufferedImage
 import java.io.File
+import java.util.*
 import javax.imageio.ImageIO
+import kotlin.collections.ArrayList
 import kotlin.streams.toList
 
 fun main() {
+    createSignModels()
+    createNormalModels()
+}
+
+fun createNormalModels() {
+    val folder = File("src/main/resources/assets/inumodelloader")
+    val list = ArrayList<String>(
+        listOf(
+            "b.m.j.lab1", "b.m.j.lab2", "b.m.j.lab3", "bsy_locker", "bsy_reagent1",
+            "bsy_reagent2", "chair_noback_1", "chair_noback_2", "eunha_electronicshelves1", "eunha_electronicshelves2",
+            "iis_printer", "j.s.y_desk", "k.j.h_home", "k.j.h_home2", "k.j.h_smoke",
+            "k.j.h_trash", "leejunyong_oven1", "leejunyong_oven2", "leejunyong_oven3", "leejunyong_sink1",
+            "leejunyong_sink2", "lins_bookshelf", "ohyejin_bucket", "ohyejin_chair", "ohyejin_desk1",
+            "ohyejin_desk2", "ohyejin_desk3", "ohyejin_desk4", "ohyejin_desk5", "ohyejin_desk6",
+            "ohyejin_desk7", "ohyejin_desk8", "ohyejin_flowerpot", "ohyejin_locker", "ohyejin_sink",
+            "ohyejin_sinksj", "prop_box", "prop_camcoder", "prop_storage_box", "prop_tissue_box",
+            "jsy_stair_desk", "kimmiseung_green_chair_2", "kimmiseung_blue_chair_2",
+            "ohyejin_bookshelf2_bt1", "ohyejin_bookshelf2_bt2", "ohyejin_bookshelf2_bt3",
+            "ohyejin_bookshelf2_top1","ohyejin_bookshelf2_top2","ohyejin_bookshelf2_top3",
+            "ohyejin_laboratory_equipment_1", "ohyejin_laboratory_equipment_2",
+            "ohyejin_laboratory_equipment_3", "ohyejin_laboratory_equipment_4",
+        )
+    )
+
+    list.forEach { it ->
+        val blockStateString = """
+            {
+                "variants": {
+                    "facing=north": { "model": "inumodelloader:block/$it" },
+                    "facing=south": { "model": "inumodelloader:block/$it", "y":  180},
+                    "facing=west": { "model": "inumodelloader:block/$it", "y":  270},
+                    "facing=east": { "model": "inumodelloader:block/$it", "y":  90}
+                }
+            }
+        """.trimIndent()
+
+
+//        val modelString = """
+//            {
+//                "textures": {
+//                    "particle": "inumodelloader:block/inu_wood_planks"
+//                }
+//            }
+//        """.trimIndent()
+
+
+        val itemString = """
+            {
+                "parent": "minecraft:item/generated",
+                "textures": {
+                    "layer0": "inumodelloader:item/$it"
+                }
+            }
+        """.trimIndent()
+
+        val blockStateFile = File(folder, "blockstates/$it.json")
+//        val modelFile = File(folder, "models/block/$it.json")
+        val itemFile = File(folder, "models/item/$it.json")
+
+        if(!blockStateFile.exists()) blockStateFile.createNewFile()
+//        if(!modelFile.exists()) blockStateFile.createNewFile()
+        if(!itemFile.exists()) blockStateFile.createNewFile()
+
+        blockStateFile.writeText(blockStateString)
+//        modelFile.writeText(modelString)
+        itemFile.writeText(itemString)
+    }
+}
+
+fun createSignModels() {
     val list = File("src/main/resources/data/signtext.csv").bufferedReader().lines().toList()
     SignSet.loadCsvAll(list)
 

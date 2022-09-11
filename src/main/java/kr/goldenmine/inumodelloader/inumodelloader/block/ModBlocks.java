@@ -54,17 +54,172 @@ public class ModBlocks {
     public static final RegistryObject<Block> INU_WOOD_PLANKS = registerBlock("inu_wood_planks",
             () -> new Block(AbstractBlock.Properties.from(Blocks.OAK_PLANKS)), ModItemGroup.TUTORIAL_TAB);
 
-//    public static final RegistryObject<Block> INU_WOOD_SIGN = BLOCKS.register("inu_wood_sign",
-//            () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, ""));
+    public static final RegistryObject<Block> OHYEJIN_DESK1 = registerBlock("ohyejin_desk1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
 
-//    public static final RegistryObject<Block> INU_WOOD_SIGN_101 = BLOCKS.register("inu_wood_sign_101",
-//            () -> new InuStandingSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, "101"));
+    public static final RegistryObject<Block> OHYEJIN_DESK2 = registerBlock("ohyejin_desk2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
 
-//    public static final RegistryObject<Block> INU_WOOD_WALL_SIGN = BLOCKS.register("inu_wood_wall_sign",
-//            () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, ""));
+    public static final RegistryObject<Block> OHYEJIN_DESK3 = registerBlock("ohyejin_desk3",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
 
-//    public static final RegistryObject<Block> INU_WOOD_WALL_SIGN_101 = BLOCKS.register("inu_wood_wall_sign_101",
-//            () -> new InuWallSignBlock(AbstractBlock.Properties.create(Material.IRON).doesNotBlockMovement(), ModWoodTypes.INUWood, "101"));
+    public static final RegistryObject<Block> OHYEJIN_DESK4 = registerBlock("ohyejin_desk4",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_DESK5 = registerBlock("ohyejin_desk5",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_DESK6 = registerBlock("ohyejin_desk6",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_DESK7 = registerBlock("ohyejin_desk7",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_DESK8 = registerBlock("ohyejin_desk8",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_BUCKET = registerBlock("ohyejin_bucket",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_CHAIR = registerBlock("ohyejin_chair",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_FLOWERPOT = registerBlock("ohyejin_flowerpot",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_LOCKER = registerBlock("ohyejin_locker",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_SINK = registerBlock("ohyejin_sink",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_SINKSJ = registerBlock("ohyejin_sinksj",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> BMJ_LAB1 = registerBlock("b.m.j.lab1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> BMJ_LAB2 = registerBlock("b.m.j.lab2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> BMJ_LAB3 = registerBlock("b.m.j.lab3",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> BSY_LOCKER = registerBlock("bsy_locker",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> BSY_REAGENT1 = registerBlock("bsy_reagent1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> BSY_REAGENT2 = registerBlock("bsy_reagent2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> CHAIR_NOBACK_1 = registerBlock("chair_noback_1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> CHAIR_NOBACK_2 = registerBlock("chair_noback_2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> EUNHA_ELECTRONICS_SHELVES_1 = registerBlock("eunha_electronicshelves1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> EUNHA_ELECTRONICS_SHELVES_2 = registerBlock("eunha_electronicshelves2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> JSY_DESK = registerBlock("j.s.y_desk",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_HOME = registerBlock("k.j.h_home",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_HOME2 = registerBlock("k.j.h_home2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_SMOKE = registerBlock("k.j.h_smoke",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_TRASH = registerBlock("k.j.h_trash",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> LEEJUNYONG_OVEN_1 = registerBlock("leejunyong_oven1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> LEEJUNYONG_OVEN_2 = registerBlock("leejunyong_oven2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> LEEJUNYONG_OVEN_3 = registerBlock("leejunyong_oven3",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> LEEJUNYONG_SINK_1 = registerBlock("leejunyong_sink1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> LEEJUNYONG_SINK_2 = registerBlock("leejunyong_sink2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> LINS_BOOKSHELF = registerBlock("lins_bookshelf",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> PROP_BOX = registerBlock("prop_box",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> PROP_CAMCODER = registerBlock("prop_camcoder",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> PROP_STORAGE_BOX = registerBlock("prop_storage_box",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> PROP_TISSUE_BOX = registerBlock("prop_tissue_box",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> IIS_PRINTER = registerBlock("iis_printer",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KMS_BLUE_CHAIR_2 = registerBlock("kimmiseung_blue_chair_2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KMS_GREEN_CHAIR_2 = registerBlock("kimmiseung_green_chair_2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> JSY_STAIR_DESK = registerBlock("jsy_stair_desk",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_BOOKSHELF2_BT1 = registerBlock("ohyejin_bookshelf2_bt1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_BOOKSHELF2_BT2 = registerBlock("ohyejin_bookshelf2_bt2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_BOOKSHELF2_BT3 = registerBlock("ohyejin_bookshelf2_bt3",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_BOOKSHELF2_TOP1 = registerBlock("ohyejin_bookshelf2_top1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_BOOKSHELF2_TOP2 = registerBlock("ohyejin_bookshelf2_top2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_BOOKSHELF2_TOP3 = registerBlock("ohyejin_bookshelf2_top3",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_LABORATORY_EQUIPMENT_1 = registerBlock("ohyejin_laboratory_equipment_1",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_LABORATORY_EQUIPMENT_2 = registerBlock("ohyejin_laboratory_equipment_2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_LABORATORY_EQUIPMENT_3 = registerBlock("ohyejin_laboratory_equipment_3",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_LABORATORY_EQUIPMENT_4 = registerBlock("ohyejin_laboratory_equipment_4",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    /*
+               "ohyejin_bookshelf2_bt1", "ohyejin_bookshelf2_bt2", "ohyejin_bookshelf2_bt3",
+            "ohyejin_bookshelf2_top1","ohyejin_bookshelf2_top2","ohyejin_bookshelf2_top3",
+            "ohyejin_laboratory_equipment_1", "ohyejin_laboratory_equipment_2",
+            "ohyejin_laboratory_equipment_3", "ohyejin_laboratory_equipment_4",
+     */
+    //jsy_stair_desk.png
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, ItemGroup group) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
