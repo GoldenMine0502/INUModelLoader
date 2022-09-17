@@ -214,6 +214,33 @@ public class ModBlocks {
     public static final RegistryObject<Block> OHYEJIN_LABORATORY_EQUIPMENT_4 = registerBlock("ohyejin_laboratory_equipment_4",
             () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
 
+    public static final RegistryObject<Block> GOHYUNSEO_ANNEALING = registerBlock("gohyunseo_annealing",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> SONICATOR = registerBlock("sonicator",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> SINK1PLUS = registerBlock("sink1plus",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> YEWON_SINK2 = registerBlock("yewon_sink2",
+            () -> new OneByThreeHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> OHYEJIN_TOILET = registerBlock("ohyejin_toilet",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_GAS = registerBlock("k.j.h_gas",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_GAS2 = registerBlock("k.j.h_gas2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_GASSUP = registerBlock("k.j.h_gassup",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
+    public static final RegistryObject<Block> KJH_GASSUP2 = registerBlock("k.j.h_gassup2",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.from(Blocks.GLASS).notSolid()), ModItemGroup.INU_MODELS_TAB);
+
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, ItemGroup group) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, group);
