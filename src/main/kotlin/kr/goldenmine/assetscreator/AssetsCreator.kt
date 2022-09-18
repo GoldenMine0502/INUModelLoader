@@ -33,7 +33,8 @@ fun createNormalModels() {
             "ohyejin_laboratory_equipment_1", "ohyejin_laboratory_equipment_2",
             "ohyejin_laboratory_equipment_3", "ohyejin_laboratory_equipment_4",
             "gohyunseo_annealing", "sonicator", "yewon_sink2", "ohyejin_toilet",
-            "k.j.h_gas", "k.j.h_gas2", "k.j.h_gassup", "k.j.h_gassup2", "sink1plus"
+            "k.j.h_gas", "k.j.h_gas2", "k.j.h_gassup", "k.j.h_gassup2", "sink1plus",
+            "leesejin_tv2", "leesejin_chair5", "leesejin_desk3", "leejunyong_picnic_chair", "circle_chair"
         )
     )
 
