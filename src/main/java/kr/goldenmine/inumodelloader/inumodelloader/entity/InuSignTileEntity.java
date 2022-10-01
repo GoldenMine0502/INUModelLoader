@@ -23,7 +23,11 @@ public class InuSignTileEntity extends SignTileEntity {
 
     @Override
     public TileEntityType<?> getType() {
-        return tileEntityType.get();
+        if(tileEntityType != null && tileEntityType.get() != null) {
+            return tileEntityType.get();
+        } else {
+            return super.getType();
+        }
     }
 
     public void setTileEntityType(RegistryObject<TileEntityType<InuSignTileEntity>> sign_tile_entities) {
