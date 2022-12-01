@@ -2,7 +2,7 @@ package kr.goldenmine.inumodelloader.inumodelloader;
 
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModBlocks;
 import kr.goldenmine.inumodelloader.inumodelloader.block.ModWoodTypes;
-import kr.goldenmine.inumodelloader.inumodelloader.events.ServerEvents;
+import kr.goldenmine.inumodelloader.inumodelloader.server.ServerEvents;
 import kr.goldenmine.inumodelloader.inumodelloader.item.ModItems;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignModelRegistry;
 import kr.goldenmine.inumodelloader.inumodelloader.sign.SignSet;
@@ -22,7 +22,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
